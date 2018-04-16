@@ -1,0 +1,163 @@
+page-vaccination-schedule {
+
+}
+
+
+
+ion-content.txt_family.content.content-md {
+    font-family: MyFont;
+
+}
+
+
+
+
+.img_part{
+        
+            text-align: center;
+            font-size: 18px;
+            background-image: url("../assets/imgs/vaccinations-bkgrd.jpg");
+            display: flex;
+            align-items: center;
+}
+
+p#para_1 {
+    margin: 0 !important;
+    color:white;
+    width: 100%;
+    padding: 50px;
+    line-height: 1.5em;
+  
+}
+
+.para_2{
+
+    font-size: 14px;
+    margin-left: 8px;
+    margin-top: 0;
+
+}
+
+.before_header{
+    font-size: 18px;
+    color:#387ef5;
+    margin-left: 20px;
+}
+
+.info_header1{
+    background-color: #1a95d2;
+    color: white;
+    padding-bottom: 18px;
+    padding-top: 18px;
+    padding-left: 15px;
+    display: flex;
+    align-items: center;
+}
+
+.info_header2{
+    background-color: #127cc2;
+    color:white;
+    padding-bottom: 18px;
+    padding-top: 18px;
+    padding-left: 15px;
+    display: flex;
+    align-items: center;
+    
+}
+
+.back_color{
+    background-color: #dcebf6;
+}
+
+.whoop_back_color{
+    background-color: #d0e5f3;  
+}
+
+.after_div{
+    
+}
+
+.after_header{
+    font-size: 18px;
+    color:#58cebb;
+    margin-left: 20px;
+}
+
+.after_header1{
+
+    background-color:#58cebb;
+    color: white;
+    padding-bottom: 18px;
+    padding-top: 18px;
+    padding-left: 15px;
+    display: flex;
+    align-items: center;
+}
+
+.after_header2{
+
+    background-color:#46b9a3;
+    color: white;
+    padding-bottom: 18px;
+    padding-top: 18px;
+    padding-left: 15px;
+    display: flex;
+    align-items: center;
+
+}
+
+ion-row{
+    font-size: 16px;
+}
+
+.back_color_odd{
+    background-color: #e3f5f1;
+    
+}
+
+.back_color_even{
+    background-color: #daf1ed;
+}
+
+ion-col.vaccine-duration.col {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.before_txt_align{
+    padding-left: 15px;
+}
+
+.before_txt_align_col2{
+    padding-right: 15px;
+}
+
+.after_txt_align_col2{
+    padding-right: 10px;
+    text-align: center;
+}
+
+.txt_align{
+    padding-left: 15px;
+}
+
+
+
+
+@media only screen and (max-width:320px) {
+    
+    p#para_1 {
+        margin: 0 !important;
+        color:white;
+        width: 100%;
+        padding: 25px;
+        line-height: 1.5em;
+    }
+
+    .img_part{
+
+        height: 150px;
+    }
+
+  }

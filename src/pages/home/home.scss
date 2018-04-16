@@ -1,0 +1,43 @@
+page-home {
+   
+    .main{
+
+        background: url("../assets/imgs/intro-bkgrd.jpg") center  ;
+        background-repeat: no-repeat;
+        background-size: 100%;
+        margin: 0;
+     
+    }
+
+    .temp{
+        height: 250px;
+    }
+
+    .logo{
+        margin: 0 auto;
+        padding-top: 100px;
+        width: 44%;
+        display: none;
+       
+    }
+
+    .content-main{
+        display: grid;
+        margin-top: 33px;   
+    }
+
+    .btn-journey
+    {
+        width: 83%;
+        height: 60px;
+        margin: 0 auto;
+        margin-top: 66px;
+    }
+
+ /*   .content-main {
+        position: relative;
+        top: 50%;
+        transform: translateY(-50%);
+    }*/
+   
+}
