@@ -8,7 +8,13 @@ import { ListPage } from '../pages/list/list';
 import { DuedatePage    } from '../pages/duedate/duedate';
 import { VaccinationSchedulePage } from '../pages/vaccination-schedule/vaccination-schedule';
 import {AboutUsPage} from '../pages/about-us/about-us';
+import { FurtherReadingPage } from '../pages/further-reading/further-reading';
+import { ChildhoodVaccinePlannerPage } from '../pages/childhood-vaccine-planner/childhood-vaccine-planner';
+
 import {HttpModule   } from '@angular/http';
+
+
+
 
 
 import { StatusBar } from '@ionic-native/status-bar';
@@ -17,11 +23,13 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 @NgModule({
   declarations: [
     MyApp,
-    HomePage,
+    HomePage, 
     ListPage,
     DuedatePage,
     VaccinationSchedulePage,
-    AboutUsPage
+    AboutUsPage,
+    FurtherReadingPage,
+    ChildhoodVaccinePlannerPage
   ],
   imports: [
     BrowserModule,
@@ -35,7 +43,9 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     ListPage,
     DuedatePage,
     VaccinationSchedulePage,
-    AboutUsPage          
+    AboutUsPage,
+    FurtherReadingPage,
+    ChildhoodVaccinePlannerPage          
   ],
   providers: [
     StatusBar,

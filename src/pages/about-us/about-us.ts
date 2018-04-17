@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams,LoadingController } from 'ionic-angular';
 import { Http } from '@angular/http';
 import 'rxjs/add/operator/map';
 
@@ -19,7 +19,7 @@ export class AboutUsPage {
 
   myData: String;
 
-  constructor(private http:Http,public navCtrl: NavController, public navParams: NavParams) {
+  constructor(private http:Http,public navCtrl: NavController, public navParams: NavParams,public loadingCtrl:LoadingController) {
   }
   
 
@@ -27,6 +27,15 @@ export class AboutUsPage {
   
 
   ionViewDidLoad() {
+
+    let loader = this.loadingCtrl.create({
+      spinner: 'bubbles',
+      content: "Please wait..."
+    });
+
+    loader.present(); 
+
+
     console.log('ionViewDidLoad AboutUsPage');
 
     
@@ -38,8 +47,11 @@ export class AboutUsPage {
 
       this.myData = data.content.rendered;
 
+      loader.dismiss();
+
     });
 
+   
    
      
 

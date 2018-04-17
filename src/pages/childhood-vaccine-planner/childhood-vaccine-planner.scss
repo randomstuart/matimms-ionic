@@ -1,0 +1,72 @@
+page-childhood-vaccine-planner {
+
+}
+
+.back_css{
+
+    background-color: #e8789d;
+    color: white;
+    font-size:14px;
+    font-family: MyFont;
+}
+
+table{
+
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+ul{
+    list-style-type: disc;
+    padding-left: 14px;
+}
+
+ th, td {
+    border-bottom: 1px solid black;
+}
+
+table {
+    border:none;
+    border-collapse: collapse;
+
+}
+
+table th{
+    border-left: 1px solid #000;
+    border-right: 1px solid #000;
+
+}
+
+table th:first-child {
+    border-left: none;
+}
+
+table th:last-child {
+    border-right: none;
+}
+
+table td {
+    border-left: 1px solid #000;
+    border-right: 1px solid #000;
+}
+
+table td:first-child {
+    border-left: none;
+}
+
+table td:last-child {
+    border-right: none;
+}
+
+p{
+    margin: 0;
+    margin-left: 10px;
+}
+
+td,th{
+    padding: 10px;
+}
+
+th{
+    background-color: #b74f71;
+}

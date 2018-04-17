@@ -8,6 +8,8 @@ import { ListPage } from '../pages/list/list';
 import { DuedatePage } from '../pages/duedate/duedate';
 import { VaccinationSchedulePage } from '../pages/vaccination-schedule/vaccination-schedule';
 import {AboutUsPage} from '../pages/about-us/about-us';
+import { FurtherReadingPage } from '../pages/further-reading/further-reading';
+import { ChildhoodVaccinePlannerPage } from '../pages/childhood-vaccine-planner/childhood-vaccine-planner';
 
 @Component({
   templateUrl: 'app.html'
@@ -27,8 +29,8 @@ export class MyApp {
       { title: 'My journey', component: HomePage    },
       { title: 'My vaccination schedule', component: VaccinationSchedulePage },
       { title: 'Change due date', component: DuedatePage },
-      { title: 'Childhood Vaccine Planner', component: HomePage },
-      { title: 'Further Reading', component: HomePage  },
+      { title: 'Childhood Vaccine Planner', component: ChildhoodVaccinePlannerPage },
+      { title: 'Further Reading', component:FurtherReadingPage },
       { title: 'About us', component: AboutUsPage   }
     ];
 
