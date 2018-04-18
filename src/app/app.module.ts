@@ -10,9 +10,11 @@ import { VaccinationSchedulePage } from '../pages/vaccination-schedule/vaccinati
 import {AboutUsPage} from '../pages/about-us/about-us';
 import { FurtherReadingPage } from '../pages/further-reading/further-reading';
 import { ChildhoodVaccinePlannerPage } from '../pages/childhood-vaccine-planner/childhood-vaccine-planner';
+import { SetduedatePage } from '../pages/setduedate/setduedate';
+import { MyjourneyPage } from '../pages/myjourney/myjourney';
 
-import {HttpModule   } from '@angular/http';
-
+import { HttpModule   } from '@angular/http';
+import { IonicStorageModule } from '@ionic/storage';
 
 
 
@@ -29,11 +31,14 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     VaccinationSchedulePage,
     AboutUsPage,
     FurtherReadingPage,
-    ChildhoodVaccinePlannerPage
+    ChildhoodVaccinePlannerPage,
+    SetduedatePage,
+    MyjourneyPage
   ],
   imports: [
     BrowserModule,
     HttpModule,
+    IonicStorageModule.forRoot(),
     IonicModule.forRoot(MyApp),
   ],
   bootstrap: [IonicApp],
@@ -45,7 +50,9 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     VaccinationSchedulePage,
     AboutUsPage,
     FurtherReadingPage,
-    ChildhoodVaccinePlannerPage          
+    ChildhoodVaccinePlannerPage,
+    SetduedatePage  ,
+    MyjourneyPage        
   ],
   providers: [
     StatusBar,

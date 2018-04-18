@@ -14,7 +14,7 @@
 
     <ion-item>
         <ion-label>Due Date</ion-label>
-        <ion-datetime displayFormat="DD/MM/YYYY" max="2050-10-31" pickerFormat="DD MM YYYY" ></ion-datetime>
+        <ion-datetime displayFormat="DD/MM/YYYY" max="2050-10-31" pickerFormat="DD MM YYYY" [(ngModel)]="dueDate" (ionChange)="getDueDate(dueDate)"></ion-datetime>
       </ion-item>
 
 </ion-content>

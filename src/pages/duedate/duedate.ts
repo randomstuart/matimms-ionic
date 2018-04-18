@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { Storage } from '@ionic/storage';
+import { HomePage} from '../home/home';
 
 /**
  * Generated class for the DuedatePage page.
@@ -15,11 +17,27 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 })
 export class DuedatePage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  dueDate : any;
+
+  constructor(private storage : Storage,  public navCtrl: NavController, public navParams: NavParams) {
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad DuedatePage');
+
+    this.storage.get("dueDate").then(date=>{
+
+        this.dueDate = date;
+    });
   }
+
+  getDueDate(date){
+
+    console.log(date);
+    this.storage.set("dueDate",date);
+    this.navCtrl.push(HomePage);
+  }
+
+
 
 }

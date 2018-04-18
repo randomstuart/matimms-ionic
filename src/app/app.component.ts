@@ -10,6 +10,7 @@ import { VaccinationSchedulePage } from '../pages/vaccination-schedule/vaccinati
 import {AboutUsPage} from '../pages/about-us/about-us';
 import { FurtherReadingPage } from '../pages/further-reading/further-reading';
 import { ChildhoodVaccinePlannerPage } from '../pages/childhood-vaccine-planner/childhood-vaccine-planner';
+import { MyjourneyPage } from '../pages/myjourney/myjourney';
 
 @Component({
   templateUrl: 'app.html'
@@ -26,7 +27,7 @@ export class MyApp {
 
     // used for an example of ngFor and navigation
     this.pages = [
-      { title: 'My journey', component: HomePage    },
+      { title: 'My journey', component: MyjourneyPage    },
       { title: 'My vaccination schedule', component: VaccinationSchedulePage },
       { title: 'Change due date', component: DuedatePage },
       { title: 'Childhood Vaccine Planner', component: ChildhoodVaccinePlannerPage },

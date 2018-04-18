@@ -1,0 +1,72 @@
+page-myjourney {
+
+}
+
+
+.back_img{
+
+    background-image: url("../assets/imgs/journey-bkgrd-large.jpg");
+    background-size: 100%;
+    background-repeat: no-repeat;
+}
+
+.circleBase {
+    border-radius: 50%;
+    behavior: url(PIE.htc); /* remove if you don't care about IE8 */
+    margin: 0 auto;
+    vertical-align: center;
+}
+
+.type3 {
+    width: 275px;
+    height: 275px;
+    background: white;
+    text-align: center;
+}
+  
+
+.middle_div{
+    display: flex;
+    align-items: center;
+    height: 100%;
+}
+
+.cont_data{
+    padding-top: 15%;
+    height: 100%;
+}
+
+.cont_data2{
+    padding-top: 20px;    
+    height: 100%;
+}
+
+.m_header{
+    
+    font-size: 23px
+}
+
+.circle_one{
+    margin-left: 10px;
+    font-size: 14px;
+    margin-top: 4px;
+    margin-right: 10px;
+}
+
+.icon_css{
+    color: #e8789d;
+    padding-top: 10px;
+    font-size: 50px;
+
+}
+
+
+.candy_stick{
+
+    height: 263%;
+    display: flex;
+    justify-content: center;
+    margin: -1px;
+}
+
+
