@@ -26,9 +26,22 @@ page-myjourney {
   
 
 .middle_div{
-    display: flex;
+   // display: flex;
     align-items: center;
     height: 100%;
+   // display: block;
+    overflow: hidden;
+    background: url(../assets/imgs/line.png) repeat-y center top;
+    margin-top: 30%;
+}
+
+.middle_div1{
+   
+    height: 100%;
+    overflow: hidden;
+    display: table;
+    width: 100%;
+    background: url(../assets/imgs/line.png) repeat-y center top;
 }
 
 .cont_data{
@@ -63,10 +76,40 @@ page-myjourney {
 
 .candy_stick{
 
-    height: 263%;
+    height: 100%;
     display: flex;
     justify-content: center;
     margin: -1px;
 }
 
 
+
+
+.dynamic_header{
+    font-size: 23px;
+    padding-top: 10%;
+    padding-right: 10%;
+    padding-left: 10%;
+}
+
+.dynamic_button{
+
+    color: #fff;
+ //   background-color: #32db64;
+    border-radius: 40px !important;
+    height: 2.5em;
+    font-size: 1.6rem;
+    width: 60%;
+}
+
+.check_css{
+    color:#32db64;
+    font-size: 12.2rem;
+}
+
+.Last_div{
+    height: 100%;
+    overflow: hidden;
+    display: table;
+    width: 100%;
+}

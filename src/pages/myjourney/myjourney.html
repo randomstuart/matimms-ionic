@@ -18,7 +18,7 @@
 </ion-header>
 
 <ion-content class="back_img">
-<div class="middle_div">
+<div class="middle_div" >
 
   <div class="circleBase type3">
     <div class="cont_data">
@@ -27,20 +27,70 @@
     <p class="circle_one">But we understand that sometimes it can be overwhelming, with lots of new information to take in.</p>
     <ion-icon name="ios-arrow-down" class="icon_css"></ion-icon>
     </div> 
-    <div class="candy_stick"><img src="assets/imgs/line.png"></div>
+    
    
   </div>
   
 </div>
 
-<div class="middle_div">
+<div class="middle_div1">
   <div class="circleBase type3">
       <div class="cont_data2">
     <p class="circle_one">Many mothers want to know</p><p class="circle_one">more about why certain things are</p><p class="circle_one">offered to them during pregnancy, including vaccinations.</p>
     <p class="circle_one">By taking this journey we hope we will help you learn about why maternal immunisation is so important to protect both you and your baby</p>
     <p class="circle_one"> Don't forget to visit the menu for relevant links and a personalised vaccination schedule for you and your baby</p>
     </div>    
+   
+
   </div>
 </div>
+
+
+<div class="middle_div1" *ngFor="let chapter of chapterList; let i = index"  > 
+
+       
+
+        <div class="circleBase type3"> 
+          <div class="cont_data2" >
+              <p class="dynamic_header">{{chapter.title.rendered}}</p>
+              <br><br><br><br>
+              <button ion-button color="secondary" class="dynamic_button"  color="{{colors[i]}}">LET'S GO</button>
+          </div>    
+          
+        </div>
+       
+
+      
+
+    
+
+    </div>
+     
+
+    <div class="Last_div" > 
+
+       
+
+        <div class="circleBase type3" > 
+          <div class="cont_data2" >
+              <p class="dynamic_header">{{txtLastCircle}}</p>
+              <br><br><br><br>
+             
+              <ion-icon name="checkmark" class="check_css"></ion-icon>
+          </div>    
+          
+        </div>
+       
+
+      
+
+    
+
+    </div>    
+   
+
+
+     
+
 
 </ion-content>
