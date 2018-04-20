@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams,LoadingController } from 'ionic-angular';
+import { PostsPage} from '../posts/posts';
 import { Http } from '@angular/http';
 import 'rxjs/add/operator/map';
 
@@ -19,15 +20,16 @@ import 'rxjs/add/operator/map';
 })
 export class MyjourneyPage {
 
-  public chapterList:Array<string> = new Array(); 
+  public chapterList:Array<string> = new Array();
 
-  public childCount:Array<number> = new Array(); 
+
+//  public childCount:Array<number> = new Array(); 
 
   public lastElement: any;
   public txtLastCircle:String;
 
-  public colors  =['first','second','third','four','five'];
-  buttonColor: string = '#000';
+ // public colors  =['first','second','third','four','five'];
+ // buttonColor: string = '#000';
   j:number=0;
   constructor(private http:Http,public navCtrl: NavController, public navParams: NavParams,public loadingCtrl:LoadingController) {
   }
@@ -60,35 +62,19 @@ export class MyjourneyPage {
             this.chapterList.push(data[i]);                 
 
             this.chapterList.sort();
-            
-              if(i != 0)
-              {
-                this.childCount.push(this.j);
-                console.log(this.j);
-                this.j=0;
-              }
               
           }
-          else{
-
-              this.j++;
-
-          }
+         
             
       }
         
-        
-
-        console.log("ChatperList "+this.chapterList);
      
         this.SortedArray();
 
-        console.log(this.chapterList);
-
         this.lastElement=this.chapterList.pop();
         this.txtLastCircle=  this.lastElement.title.rendered;
-        console.log(this.chapterList);
         
+     
         loader.dismiss();
 
     });  
@@ -111,6 +97,16 @@ export class MyjourneyPage {
 SortedArray(){
 this.chapterList.sort(this.sortByProperty('menu_order'));
 }
+
+openSlider(id,title){
+
+    
+    console.log(id);
+    console.log(title);
+
+    this.navCtrl.push(PostsPage,{'id':id,'title':title});
+}
+
 
 
 }
