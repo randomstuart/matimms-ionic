@@ -1,3 +1,46 @@
 page-posts {
 
 }
+
+.card_back_img{
+
+    background-image: url("../assets/imgs/cards-bkgrd.jpg");
+    background-size: 105%;
+    background-repeat: no-repeat;
+}
+
+.border_style{
+
+    border-radius: 12%;
+    height: 300px !important;
+    margin-left: 10%;
+    width: 80%;
+   position: relative;
+}
+
+.card_header{
+
+    display: block;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: unset !important;
+}
+
+
+.card_content{
+
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+}
+
+.card_button{
+
+    color: #fff;
+ //   background-color: #32db64;
+    border-radius: 40px !important;
+    height: 2.5em;
+    font-size: 1.6rem;
+    width: 60%;
+    
+}

@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
-
+import { PostDetailPage } from '../post-detail/post-detail';
 import { Http } from '@angular/http';
 import 'rxjs/add/operator/map';
 
@@ -22,7 +22,7 @@ export class PostsPage {
   public childList:Array<string> = new Array();
   parent_title : String;
   parent_id : number;
-
+  parent_color : String;
   constructor(public http:Http, public navCtrl: NavController, public navParams: NavParams) {
   }
 
@@ -31,9 +31,10 @@ export class PostsPage {
 
     this.parent_id=this.navParams.get('id');      
     this.parent_title=this.navParams.get('title');
-    
-    console.log(this.parent_id);
+    this.parent_color=this.navParams.get('back_color');
 
+    console.log(this.parent_id);
+    console.log(this.parent_color);
     this.getPost();
 
   }
@@ -54,6 +55,15 @@ export class PostsPage {
  
         console.log(this.childList);   
     });
+
+  }
+
+
+
+  postDetail(id){
+
+      console.log(id);
+      this.navCtrl.push(PostDetailPage,{'id':id});
 
   }
 

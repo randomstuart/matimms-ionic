@@ -6,7 +6,7 @@
 -->
 <ion-header>
 
-    <ion-navbar  color="primary">
+    <ion-navbar color="primary"  [ngStyle]="{'background-color':parent_color}">
         <ion-buttons end>
             <button ion-button menuToggle >
               <ion-icon name="menu"></ion-icon>
@@ -18,16 +18,32 @@
 </ion-header>
 
 
-<ion-content >
+<ion-content class="card_back_img">
     <ion-slides pager>
 
         <ion-slide *ngFor="let child of childList">
-          <h2>{{child.title.rendered}}</h2>
+
+          <ion-card class="border_style">
+
+            <ion-card-header class="card_header">
+              {{child.title.rendered}}
+            </ion-card-header>
+          
+            <ion-card-content class="card_content" >
+              <!-- Add card content here! -->
+             
+              <button ion-button class="card_button" (click)="postDetail(child.id)" >READ</button>
+              <ion-row>
+
+              </ion-row>
+              <p>Not complete</p>
+           
+            </ion-card-content>
+          
+          </ion-card>
+
+
         </ion-slide>
-      
-        
-      
-        
       
       </ion-slides>
 

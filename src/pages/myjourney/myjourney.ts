@@ -30,7 +30,7 @@ export class MyjourneyPage {
 
  // public colors  =['first','second','third','four','five'];
  // buttonColor: string = '#000';
-  j:number=0;
+
   constructor(private http:Http,public navCtrl: NavController, public navParams: NavParams,public loadingCtrl:LoadingController) {
   }
 
@@ -98,13 +98,13 @@ SortedArray(){
 this.chapterList.sort(this.sortByProperty('menu_order'));
 }
 
-openSlider(id,title){
+openSlider(id,title,back_color){
 
     
     console.log(id);
     console.log(title);
-
-    this.navCtrl.push(PostsPage,{'id':id,'title':title});
+    console.log(back_color);
+    this.navCtrl.push(PostsPage,{'id':id,'title':title,'back_color':back_color});
 }
 
 
