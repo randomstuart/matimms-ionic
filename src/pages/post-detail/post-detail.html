@@ -12,18 +12,26 @@
           <ion-icon name="menu"></ion-icon>
         </button>
     </ion-buttons>
-    <ion-title>{{title}}</ion-title>
+    <ion-title>{{header_title}}</ion-title>
   </ion-navbar>
 
 </ion-header>
 
-<ion-content>
+<ion-content *ngIf="hideData">
   
-      <div *ngFor="let posts of postDescription">
-      <div class="p_txt_format" [innerHTML]="posts.content.rendered">
+      <div >
+        <h4 class="txt_center">{{title}}</h4>
+        <div class="img_div">  
+          <img src="{{imgUrl}}" alt="image not found" >
+        </div>  
+        <div class="p_txt_format" [innerHTML]="description">
            
 
-      </div>
+        </div>
+      <button class="prev_post_button" [ngStyle]="{'background-color':'gray'}" *ngIf="hide_show" ion-button (click)="prevPage()">Previous</button>
+      <button class="next_post_button" [ngStyle]="{'background-color':parent_color}" ion-button (click)="nextPage()">{{btn_text}}</button>
+      
+
       </div>    
      
 </ion-content>

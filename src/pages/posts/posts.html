@@ -4,9 +4,9 @@
   See http://ionicframework.com/docs/components/#navigation for more info on
   Ionic pages and navigation.
 -->
-<ion-header>
+<ion-header >
 
-    <ion-navbar color="primary"  [ngStyle]="{'background-color':parent_color}">
+    <ion-navbar color="primary" >
         <ion-buttons end>
             <button ion-button menuToggle >
               <ion-icon name="menu"></ion-icon>
@@ -18,7 +18,7 @@
 </ion-header>
 
 
-<ion-content class="card_back_img">
+<ion-content *ngIf="hideData" class="card_back_img">
     <ion-slides pager>
 
         <ion-slide *ngFor="let child of childList">
@@ -32,7 +32,7 @@
             <ion-card-content class="card_content" >
               <!-- Add card content here! -->
              
-              <button ion-button class="card_button" (click)="postDetail(child.id)" >READ</button>
+              <button ion-button class="card_button" [ngStyle]="{'background-color':parent_color}" (click)="postDetail(child.id,child.title.rendered)" >READ</button>
               <ion-row>
 
               </ion-row>
@@ -43,6 +43,16 @@
           </ion-card>
 
 
+        </ion-slide>
+
+        <ion-slide>
+          <ion-card class="border_style">
+              <ion-card-header class="card_header">Nearly there</ion-card-header>
+
+              <ion-card-content class="card_content">
+                  <p>Not complete</p>
+              </ion-card-content>
+          </ion-card>
         </ion-slide>
       
       </ion-slides>

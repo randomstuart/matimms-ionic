@@ -27,6 +27,8 @@ export class MyjourneyPage {
 
   public lastElement: any;
   public txtLastCircle:String;
+  public hideData : boolean=false;
+  public data_color: any;
 
  // public colors  =['first','second','third','four','five'];
  // buttonColor: string = '#000';
@@ -73,8 +75,9 @@ export class MyjourneyPage {
 
         this.lastElement=this.chapterList.pop();
         this.txtLastCircle=  this.lastElement.title.rendered;
+       
         
-     
+        this.hideData=true;
         loader.dismiss();
 
     });  
@@ -98,13 +101,14 @@ SortedArray(){
 this.chapterList.sort(this.sortByProperty('menu_order'));
 }
 
-openSlider(id,title,back_color){
+openSlider(id,title,back_color,dark_color){
 
     
     console.log(id);
     console.log(title);
     console.log(back_color);
-    this.navCtrl.push(PostsPage,{'id':id,'title':title,'back_color':back_color});
+    console.log(dark_color);
+    this.navCtrl.push(PostsPage,{'id':id,'title':title,'back_color':back_color,'dark_color':dark_color});
 }
 
 

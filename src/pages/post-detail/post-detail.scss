@@ -17,5 +17,42 @@ page-post-detail {
         padding-left: 40px;
         font-size: 15px;
     }
-   
+
 }
+
+.next_post_button{
+
+    color: #fff;
+ //   background-color: #32db64;
+    border-radius: 40px !important;
+    height: 2.5em;
+    font-size: 1.6rem;
+    width: 40%;
+    float: right;
+}
+
+.prev_post_button{
+
+    color: #fff;
+ //   background-color: #32db64;
+    border-radius: 40px !important;
+    height: 2.5em;
+    font-size: 1.6rem;
+    width: 40%;
+    
+}
+
+.txt_center{
+    text-align: center;
+    margin-top: 20%;
+}
+
+.img_div{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 80%;
+    height: 100px;
+    border: 1px solid;
+}
+

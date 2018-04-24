@@ -17,7 +17,7 @@
 
 </ion-header>
 
-<ion-content class="back_img">
+<ion-content *ngIf="hideData" class="back_img">
 <div class="middle_div" >
 
   <div class="circleBase type3">
@@ -54,7 +54,7 @@
           <div class="cont_data2" >
               <p class="dynamic_header">{{chapter.title.rendered}}</p>
               <br><br><br><br>
-              <button ion-button color="secondary" class="dynamic_button" (click)="openSlider(chapter.id,chapter.title.rendered,chapter.meta_color.light)"  [ngStyle]="{'background-color' : chapter.meta_color.light}">LET'S GO</button>
+              <button ion-button color="secondary" class="dynamic_button" (click)="openSlider(chapter.id,chapter.title.rendered,chapter.meta_color.light,chapter.meta_color.dark)"  [ngStyle]="{'background-color' : chapter.meta_color.light}">LET'S GO</button>
           </div>    
           
         </div>
