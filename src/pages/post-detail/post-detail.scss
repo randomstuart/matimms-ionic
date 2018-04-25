@@ -56,3 +56,26 @@ page-post-detail {
     border: 1px solid;
 }
 
+
+.temp .toolbar-background.toolbar-background-md{
+    background-color: transparent !important;
+}
+
+
+.bar-button-default-md, .bar-button-clear-md-default, .bar-button-md-default {
+    /* color: #424242; */
+    background-color: transparent;
+    color: white;
+}
+
+
+.temp .toolbar-background.toolbar-background-ios{
+    background-color: transparent !important;
+}
+
+
+.bar-button-default-ios, .bar-button-clear-ios-default, .bar-button-ios-default {
+    /* color: #424242; */
+    background-color: transparent;
+    color: white;
+}

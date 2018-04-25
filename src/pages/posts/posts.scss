@@ -13,8 +13,8 @@ page-posts {
 
     border-radius: 12%;
     height: 300px !important;
-    margin-left: 10%;
-    width: 80%;
+  //  margin-left: 10%;
+    width: 100%;
    position: relative;
 }
 
@@ -46,3 +46,77 @@ page-posts {
     
 }
 
+.temp .toolbar-background.toolbar-background-md{
+    background-color: transparent !important;
+}
+
+
+.bar-button-default-md, .bar-button-clear-md-default, .bar-button-md-default {
+    /* color: #424242; */
+    background-color: transparent;
+    color: white;
+}
+
+
+.temp .toolbar-background.toolbar-background-ios{
+    background-color: transparent !important;
+}
+
+
+.bar-button-default-ios, .bar-button-clear-ios-default, .bar-button-ios-default {
+    /* color: #424242; */
+    background-color: transparent;
+    color: white;
+}
+
+
+
+.item-md{
+
+    color:white;
+    background-color: inherit;
+}
+
+.post_icon{
+
+    color:white;
+  //float: right;
+    font-size: 200%;
+    margin-left: 2%;
+ //  margin-right: 2%;
+    
+}
+
+.post_forward_icon{
+    color:white;
+  //float: right;
+    font-size: 200%;
+  //  margin-left: 2%;
+  margin-right: 2%;
+
+}
+
+.slide-zoom {
+    text-align: center;
+    display: flex;
+    width: 100%;
+    align-items: center;
+    /* float: right; */
+   
+}
+
+.first_arrow{
+    margin-left: 3%;
+    visibility: hidden;
+}
+
+.last_arrow{
+   
+    visibility: hidden;
+}
+
+
+.ion_color{
+    color:gray;
+    font-size: 160%;
+}

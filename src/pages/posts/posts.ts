@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
 import { IonicPage, NavController, NavParams , LoadingController} from 'ionic-angular';
 import { PostDetailPage } from '../post-detail/post-detail';
 import { Http } from '@angular/http';
@@ -20,11 +20,17 @@ export class PostsPage {
 
 
   public childList:Array<string> = new Array();
-  parent_title : String;
+  parent_title : String;  
   parent_id : number;
   parent_color : String;
   parent_dark_color:String;
   hideData :boolean=false;
+  ion_icons:Array<string> =new Array();
+  slider : any;
+  post_icon: string;
+  icon_index : number = 0;
+  ion_parent_icon:Array<string>=new Array();
+  @ViewChild('mySlider') mySlider;
 
   constructor(public http:Http, public navCtrl: NavController, public navParams: NavParams, public loadCtrl:LoadingController) {
   }
@@ -38,13 +44,25 @@ export class PostsPage {
     this.parent_color=this.navParams.get('back_color');
     this.parent_dark_color=this.navParams.get('dark_color');
 
-    console.log(this.parent_id);
+    this.ion_icons.push("square");
+    this.ion_icons.push("cloud");
+    this.ion_icons.push("egg");
+    this.ion_icons.push("heart");
+    this.ion_icons.push("medical");
+    this.ion_icons.push("star");
+
+    console.log(this.parent_id);        
     console.log(this.parent_color);
-    console.log(this.parent_dark_color);
+    console.log(this.parent_dark_color);      
+    console.log(this.ion_icons);           
+
+  //  this.post_icon = this.ion_icons[this.icon_index];           
+
+
 
     this.getPost();
 
-  }
+  }   
 
   
 
@@ -69,7 +87,14 @@ export class PostsPage {
           }
         }
  
-        console.log(this.childList);   
+        console.log(this.childList);
+
+        for(let i=0;i<this.childList.length;i++)
+        {
+              this.ion_parent_icon[i]=this.ion_icons[i];
+        }
+      
+        this.post_icon=this.ion_parent_icon[this.icon_index];
         this.hideData=true;
         loader.dismiss();
     });
@@ -87,5 +112,15 @@ export class PostsPage {
       this.navCtrl.push(PostDetailPage,{'id':id,'title':title,'parent_color':this.parent_color});
 
   }
+  
+             
+  slideChanged() { 
+    console.log("slide CHANGED"+this.mySlider.getActiveIndex());  
 
+    this.icon_index = this.mySlider.getActiveIndex();    
+    
+  //  this.post_icon = this.ion_icons[this.icon_index];  
+      this.post_icon = this.ion_parent_icon[this.icon_index];
+    console.log("Icon Index "+this.icon_index);           
+  }
 }
