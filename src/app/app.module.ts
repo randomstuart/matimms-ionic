@@ -15,13 +15,16 @@ import { MyjourneyPage } from '../pages/myjourney/myjourney';
 import { PostsPage } from '../pages/posts/posts';
 import { PostDetailPage} from '../pages/post-detail/post-detail';
 import { HttpModule   } from '@angular/http';
+
+
 import { IonicStorageModule } from '@ionic/storage';
 
-
+import { HttpClient } from '@angular/common/http';
 
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
+import { DataProvider } from '../providers/data/data';
 
 @NgModule({
   declarations: [
@@ -41,6 +44,7 @@ import { SplashScreen } from '@ionic-native/splash-screen';
   imports: [
     BrowserModule,
     HttpModule,
+   
     IonicStorageModule.forRoot(),
     IonicModule.forRoot(MyApp),
   ],
@@ -63,7 +67,8 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     StatusBar,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
-   
+    DataProvider,     
+    HttpClient,     
   ]
 })
 export class AppModule {}

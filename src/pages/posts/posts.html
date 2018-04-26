@@ -23,6 +23,7 @@
     <ion-slides pager   #mySlider  (ionSlideWillChange)="slideChanged()">
         
         <ion-slide  *ngFor="let child of childList ; let i = index "    >
+
             <ion-icon [ngClass]="i==0 ? 'first_arrow' : 'post_icon' "  name="ios-arrow-back" ></ion-icon>
           <ion-card class="border_style">
 
@@ -47,7 +48,7 @@
           
           </ion-card>
 
-          <ion-icon class="post_forward_icon" name="ios-arrow-forward"></ion-icon>  
+          <ion-icon class="post_forward_icon" name="ios-arrow-forward"></ion-icon>   
         </ion-slide>
 
         <ion-slide>
@@ -56,16 +57,36 @@
               <ion-card-header class="card_header">Nearly there</ion-card-header>
 
               <ion-card-content class="card_content">
-                <span *ngFor="let ic of ion_parent_icon ; let i =index;">
-                    <ion-icon *ngIf=" i < childList.length ? true : false " class="ion_color" name={{ic}}></ion-icon> 
-                </span>
-                  <p>Not complete</p>
+                
+                <button ion-button class="card_button" [ngStyle]="{'background-color':parent_color}" (click)="postDetail(child.id,child.title.rendered)" >READ</button>    
+                <ion-row >
+                  <ion-col>   
+                      <span *ngFor="let ic of ion_parent_icon ; let i =index;">
+                        <ion-icon *ngIf=" i < childList.length ? true : false " class="ion_color" name={{ic}}></ion-icon> 
+                      </span>
+                      <p>Not complete</p>
+                  </ion-col>
+                </ion-row>  
+
               </ion-card-content>
           </ion-card>
           <ion-icon  class="post_forward_icon last_arrow" name="ios-arrow-forward" ></ion-icon>
           
         </ion-slide>
+        
       
       </ion-slides>
 
+      <div class="abso">
+
+          <ion-row > 
+            <ion-col >
+              <span *ngFor="let ic of ion_parent_icon ; let i =index;">
+              <ion-icon [ngClass]=" i == icon_index ? 'active_slide' : 'footer_ion_color' " name={{ic}}></ion-icon> 
+              </span>
+            </ion-col>
+          </ion-row>
+          
+      </div>
+      
 </ion-content>

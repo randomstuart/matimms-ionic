@@ -3,7 +3,7 @@ import { IonicPage, NavController, NavParams,LoadingController } from 'ionic-ang
 import { PostsPage} from '../posts/posts';
 import { Http } from '@angular/http';
 import 'rxjs/add/operator/map';
-     
+
 
 
 /**
@@ -29,22 +29,34 @@ export class MyjourneyPage {
   public txtLastCircle:String;
   public hideData : boolean=false;
   public data_color: any;
-
+  public parent_id: number;
+  public child_count : Array<number> = new Array();
+  public count:number =0;
+  public abc : any;
+  public ion_icons:Array<string> =new Array();
  // public colors  =['first','second','third','four','five'];
  // buttonColor: string = '#000';
 
-  constructor(private http:Http,public navCtrl: NavController, public navParams: NavParams,public loadingCtrl:LoadingController) {
+  constructor( private http:Http,public navCtrl: NavController, public navParams: NavParams,public loadingCtrl:LoadingController) {
+  
+      
   }
 
   ionViewDidLoad() {
 
     let loader = this.loadingCtrl.create({
       spinner: 'bubbles',
-      content: "Please wait..."
-    });
-
+      content: "Please wait..."            
+    });  
+      
     loader.present(); 
 
+    this.ion_icons.push("square");
+    this.ion_icons.push("cloud");
+    this.ion_icons.push("egg");
+    this.ion_icons.push("heart");
+    this.ion_icons.push("medical");
+    this.ion_icons.push("star");
 
 
     console.log('ionViewDidLoad MyjourneyPage');
@@ -69,14 +81,41 @@ export class MyjourneyPage {
          
             
       }
-        
-     
+
+      
+
         this.SortedArray();
+
+    
+      for(let j=0;j<this.chapterList.length;j++)
+      {
+        this.abc=this.chapterList[j];
+        console.log(this.abc.id);
+        this.count=0; 
+        for(let i=0; i<data.length;i++)
+        {
+          if(data[i].parent==this.abc.id)
+          {
+            this.count++;   
+          }
+        }
+        this.child_count.push(this.count);
+        console.log(this.count);
+      }
+
+      
+
+
+      for(let i=0;i<this.child_count.length;i++)
+      {
+          console.log(this.child_count[i]);
+      }
+
+    
 
         this.lastElement=this.chapterList.pop();
         this.txtLastCircle=  this.lastElement.title.rendered;
-       
-        
+
         this.hideData=true;
         loader.dismiss();
 

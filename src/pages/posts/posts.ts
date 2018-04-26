@@ -112,6 +112,8 @@ export class PostsPage {
       this.navCtrl.push(PostDetailPage,{'id':id,'title':title,'parent_color':this.parent_color});
 
   }
+
+   
   
              
   slideChanged() { 

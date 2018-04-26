@@ -120,3 +120,32 @@ page-posts {
     color:gray;
     font-size: 160%;
 }
+
+.swiper-pagination-bullet {
+
+    display: none !important;
+}
+
+div.abso {
+    position: absolute;
+    width: 100%;
+    bottom: 0;
+    display: flex;
+    justify-content: center;
+
+} 
+
+.footer_ion_color{
+    color:white;
+    font-size: 160%;
+    opacity: .2;
+    padding: 2px;
+}
+
+.active_slide{
+
+    color:white;
+    font-size: 160%;
+    opacity: .8;
+    padding: 2px;
+}

@@ -1,6 +1,6 @@
 <ion-header>
   <ion-navbar hideBackButton="true" color="primary">
-    <ion-buttons end>
+    <ion-buttons *ngIf=" date_value==0? false : true " end>
     <button ion-button menuToggle>
       <ion-icon name="menu"></ion-icon>
     </button>
@@ -10,6 +10,7 @@
 </ion-header>
 
 <ion-content class="main" >
+    
 
 
   <ion-row class="content-main">
