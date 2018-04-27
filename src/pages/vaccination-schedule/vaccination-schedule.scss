@@ -67,10 +67,14 @@ p#para_1 {
 
 .back_color{
     background-color: #dcebf6;
+    padding-top: 10px;
+    padding-bottom: 10px;
 }
 
 .whoop_back_color{
     background-color: #d0e5f3;  
+    padding-top: 10px;
+    padding-bottom: 10px;
 }
 
 .after_div{
@@ -112,30 +116,39 @@ ion-row{
 
 .back_color_odd{
     background-color: #e3f5f1;
+    padding-top: 10px;
+    padding-bottom: 10px;
     
 }
 
 .back_color_even{
     background-color: #daf1ed;
+    padding-top: 10px;
+    padding-bottom: 10px;
 }
 
 ion-col.vaccine-duration.col {
     display: flex;
     align-items: center;
     justify-content: center;
+    text-align: center;
+   
 }
 
 .before_txt_align{
     padding-left: 15px;
+    font-family: MyFont;
 }
 
 .before_txt_align_col2{
     padding-right: 15px;
+    font-family: MyFont;
 }
 
 .after_txt_align_col2{
     padding-right: 10px;
     text-align: center;
+  
 }
 
 .txt_align{
@@ -161,3 +174,27 @@ ion-col.vaccine-duration.col {
     }
 
   }
+
+  img.calendar_icon {
+    width: 11%;
+    vertical-align: middle;
+    margin-right: 5px;
+ }
+
+b.addToCalendar {
+    color: #46b9a3;
+    font-size: 13px;
+    /* padding: 5px; */
+    border: 1px solid #46b9a3;
+    padding: 8px;
+    border-radius: 24px;
+}
+
+b.addedToCalendar {
+    color: #127cc2;
+    font-size: 13px;
+    /* padding: 5px; */
+    border: 1px solid #127cc2;
+    padding: 8px;
+    border-radius: 24px;
+}

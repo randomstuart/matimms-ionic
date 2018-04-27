@@ -138,3 +138,9 @@ ion-content.navigation-panel.content.content-ios {
   body, span, button, h1, h2, h3, h4, h5, h6, p, ion-item, ion-title {
   font-family: 'MyFont' !important;
   }
+
+
+  button.menu-item.item.item-block.item-ios {
+    background-color: inherit !important;
+    color: white !important;
+}

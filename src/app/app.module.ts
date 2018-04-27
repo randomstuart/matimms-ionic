@@ -15,12 +15,12 @@ import { MyjourneyPage } from '../pages/myjourney/myjourney';
 import { PostsPage } from '../pages/posts/posts';
 import { PostDetailPage} from '../pages/post-detail/post-detail';
 import { HttpModule   } from '@angular/http';
-
+import { DatePipe } from '@angular/common'
 
 import { IonicStorageModule } from '@ionic/storage';
 
 import { HttpClient } from '@angular/common/http';
-
+import { LocalNotifications } from '@ionic-native/local-notifications';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
@@ -68,7 +68,9 @@ import { DataProvider } from '../providers/data/data';
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     DataProvider,     
-    HttpClient,     
+    HttpClient, 
+    DatePipe,
+    LocalNotifications                                       
   ]
 })
 export class AppModule {}

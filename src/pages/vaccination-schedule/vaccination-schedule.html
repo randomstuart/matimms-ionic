@@ -71,7 +71,11 @@
   </ion-col>
   
   <ion-col col-6 class="vaccine-duration">
-    <p  ><b>8 </b>weeks</p>
+    <p>   <b>8</b>weeks<br>
+          <b>{{eight_week}}</b><br><br>
+          <b  [ngClass]=" event_label_8wk == 'Add to calendar' ? 'addToCalendar' : 'addedToCalendar' " (click)="scheduleNotification('8wk',eight_week,'event_label_8wk')"><img class="calendar_icon" [src]="event_img_8wk"/> {{event_label_8wk}}</b>
+    </p>
+   
   </ion-col>
 </ion-row>
 
@@ -87,7 +91,10 @@
     </ion-col>
 
     <ion-col col-6  class="vaccine-duration">
-        <p ><b>12 </b>weeks</p>
+        <p ><b>12 </b>weeks <br>
+            <b>{{twelve_week}}</b><br><br>
+            <b class="addToCalendar" [ngClass]=" event_label_12wk == 'Add to calendar' ? 'addToCalendar' : 'addedToCalendar' " (click)="scheduleNotification('12wk',twelve_week,'event_label_12wk')"><img class="calendar_icon" [src]="event_img_12wk"/> {{event_label_12wk}}</b>
+        </p>
     </ion-col>
 </ion-row>
 
@@ -107,7 +114,11 @@
     </ion-col>
     
     <ion-col col-6  class="vaccine-duration">
-      <p ><b>16 </b>weeks</p>
+      <p ><b>16 </b>weeks <br>
+        <b>{{sixteen_week}}</b><br><br>
+        <b class="addToCalendar" [ngClass]=" event_label_16wk == 'Add to calendar' ? 'addToCalendar' : 'addedToCalendar' " (click)="scheduleNotification('16wk',sixteen_week,'event_label_16wk')" ><img class="calendar_icon" [src]="event_img_16wk"/>{{event_label_16wk}}</b>
+      </p>
+    
     </ion-col>
 </ion-row>
   
@@ -137,6 +148,9 @@
       <ion-col col-6  class="vaccine-duration">
         <p >One year old
             (on or after the child’s first birthday)
+            <br>
+            <b>{{one_year}}</b><br><br>
+            <b class="addToCalendar" [ngClass]=" event_label_1yr == 'Add to calendar' ? 'addToCalendar' : 'addedToCalendar' " (click)="scheduleNotification('1yr',one_year,'event_label_1yr')" ><img class="calendar_icon" [src]="event_img_1yr"/> {{event_label_1yr}}</b>
         </p>
       </ion-col>
   </ion-row>
@@ -152,6 +166,9 @@
       <ion-col col-6 class="vaccine-duration after_txt_align_col2">
          <p>Two to eight years old (including children in reception class and school years 1-4).<br>
             Each year from September.
+          <br>
+          <b>{{two_year}}</b><br><br>
+          <b class="addToCalendar" [ngClass]=" event_label_2yr == 'Add to calendar' ? 'addToCalendar' : 'addedToCalendar' " (click)="scheduleNotification('2yr',two_year,'event_label_2yr')" ><img class="calendar_icon" [src]="event_img_2yr"/>{{event_label_2yr}}</b>
           </p> 
       </ion-col>
 
@@ -170,7 +187,11 @@
     </ion-col>
 
     <ion-col col-6 class="vaccine-duration">
-        <p>Three years four months old or soon after</p>
+        <p>Three years four months old or soon after
+          <br>
+          <b>{{three_year_four_months}}</b><br><br>
+          <b class="addToCalendar" [ngClass]=" event_label_3yr4mn == 'Add to calendar' ? 'addToCalendar' : 'addedToCalendar' " (click)="scheduleNotification('3yr4mn',three_year_four_months,'event_label_3yr4mn')" ><img class="calendar_icon" [src]="event_img_3yr4mn"/>{{event_label_3yr4mn}}</b>
+        </p>
     </ion-col>
   </ion-row>
 
@@ -183,7 +204,11 @@
       </ion-col>
   
       <ion-col col-6 class="vaccine-duration">
-        <p>Girls aged 12 to 13 years</p>
+        <p>Girls aged 12 to 13 years
+          <br>
+          <b>{{twelve_years}}</b><br><br>
+          <b class="addToCalendar"  [ngClass]=" event_label_12yr == 'Add to calendar' ? 'addToCalendar' : 'addedToCalendar' " (click)="scheduleNotification('12yr',twelve_years,'event_label_12yr')"><img class="calendar_icon"  [src]="event_img_12yr"/>{{event_label_12yr}}</b>
+        </p>
       </ion-col>
   </ion-row>
 
@@ -200,7 +225,11 @@
         </ion-col>
     
         <ion-col col-6 class="vaccine-duration after_txt_align_col2">
-          <p>Fourteen years old (school year 9)</p>
+          <p>Fourteen years old (school year 9)
+            <br>
+            <b>{{fourteen_years}}</b><br><br>
+            <b class="addToCalendar" [ngClass]=" event_label_14yr == 'Add to calendar' ? 'addToCalendar' : 'addedToCalendar' "  (click)="scheduleNotification('14yr',fourteen_years,'event_label_14yr')" ><img class="calendar_icon" [src]="event_img_14yr"/> {{event_label_14yr}}</b>
+          </p>
         </ion-col>
   </ion-row>
 
