@@ -1,6 +1,7 @@
 import { Component, ViewChild } from '@angular/core';
-import { IonicPage, NavController, NavParams , LoadingController} from 'ionic-angular';
+import { IonicPage, NavController, NavParams , LoadingController , ViewController} from 'ionic-angular';
 import { PostDetailPage } from '../post-detail/post-detail';
+import { Storage } from '@ionic/storage';
 import { Http } from '@angular/http';
 import 'rxjs/add/operator/map';
 
@@ -18,10 +19,10 @@ import 'rxjs/add/operator/map';
 })
 export class PostsPage {
 
-
-  public childList:Array<string> = new Array();
+  read_id : Array<any> =new Array();
+  public childList:Array<any> = new Array();
   parent_title : String;  
-  parent_id : number;
+  parent_id : any;
   parent_color : String;
   parent_dark_color:String;
   hideData :boolean=false;
@@ -30,15 +31,19 @@ export class PostsPage {
   post_icon: string;
   icon_index : number = 0;
   ion_parent_icon:Array<string>=new Array();
+     
   @ViewChild('mySlider') mySlider;
+    
+  
 
-  constructor(public http:Http, public navCtrl: NavController, public navParams: NavParams, public loadCtrl:LoadingController) {
+  constructor(public storage:Storage,public http:Http, public navCtrl: NavController, public navParams: NavParams, public loadCtrl:LoadingController) {
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad PostsPage');
 
     
+     
     this.parent_id=this.navParams.get('id');      
     this.parent_title=this.navParams.get('title');
     this.parent_color=this.navParams.get('back_color');
@@ -56,11 +61,16 @@ export class PostsPage {
     console.log(this.parent_dark_color);      
     console.log(this.ion_icons);           
 
+
+    
+
+     
   //  this.post_icon = this.ion_icons[this.icon_index];           
 
 
 
     this.getPost();
+    
 
   }   
 
@@ -84,32 +94,53 @@ export class PostsPage {
           if(data[i].parent == this.parent_id)
           {
               this.childList.push(data[i]);
+              
+              this.storage.get(data[i].id).then(id=>{
+              
+              this.read_id.push(id);      
+         });
+                
           }
         }
- 
-        console.log(this.childList);
+
+        
+         
 
         for(let i=0;i<this.childList.length;i++)
         {
               this.ion_parent_icon[i]=this.ion_icons[i];
         }
-      
+         
         this.post_icon=this.ion_parent_icon[this.icon_index];
         this.hideData=true;
+
+
+
+      
         loader.dismiss();
+
+        
+       
     });
 
-  
+
+   
+   
+    
 
   }
  
-
+  ionViewDidEnter()
+  {
+    console.log("Welcome");
+  }
 
   postDetail(id,title){
 
       console.log(id);
-      console.log(this.parent_color);  
-      this.navCtrl.push(PostDetailPage,{'id':id,'title':title,'parent_color':this.parent_color});
+      console.log(this.parent_color); 
+
+      this.navCtrl.push(PostDetailPage,{'parent_id':this.parent_id,'id':id,'title':title,'parent_color':this.parent_color});
 
   }
 
@@ -124,5 +155,9 @@ export class PostsPage {
   //  this.post_icon = this.ion_icons[this.icon_index];  
       this.post_icon = this.ion_parent_icon[this.icon_index];
     console.log("Icon Index "+this.icon_index);           
-  }
+  }    
+
+
+      
+
 }

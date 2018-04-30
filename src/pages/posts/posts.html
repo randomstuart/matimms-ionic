@@ -36,8 +36,9 @@
              
               <button ion-button class="card_button" [ngStyle]="{'background-color':parent_color}" (click)="postDetail(child.id,child.title.rendered)" >READ</button>
               <ion-row >
-                  <ion-col> 
-                    <ion-icon class="ion_color" name={{post_icon}}></ion-icon>
+                  <ion-col> {{child.id}}
+                    <ion-icon [ngClass]="read_id[i] == 1 ? 'ion_read_color' :  'ion_color'"  name={{post_icon}}></ion-icon>
+
                     <p>Not complete</p>  
                   </ion-col>
                   
@@ -62,7 +63,7 @@
                 <ion-row >
                   <ion-col>   
                       <span *ngFor="let ic of ion_parent_icon ; let i =index;">
-                        <ion-icon *ngIf=" i < childList.length ? true : false " class="ion_color" name={{ic}}></ion-icon> 
+                        <ion-icon *ngIf=" i < childList.length ? true : false "  [ngClass]="read_id[i] == 1 ? 'ion_read_color' :  'ion_color'" name={{ic}}></ion-icon> 
                       </span>
                       <p>Not complete</p>
                   </ion-col>

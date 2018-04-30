@@ -52,7 +52,7 @@ page-posts {
 
 
 .bar-button-default-md, .bar-button-clear-md-default, .bar-button-md-default {
-    /* color: #424242; */
+   //  color: #424242; 
     background-color: transparent;
     color: white;
 }
@@ -64,7 +64,7 @@ page-posts {
 
 
 .bar-button-default-ios, .bar-button-clear-ios-default, .bar-button-ios-default {
-    /* color: #424242; */
+    // color: #424242; 
     background-color: transparent;
     color: white;
 }
@@ -120,6 +120,12 @@ page-posts {
     color:gray;
     font-size: 160%;
 }
+
+.ion_read_color{
+
+    color: palevioletred;
+}
+
 
 .swiper-pagination-bullet {
 

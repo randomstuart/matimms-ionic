@@ -20,6 +20,8 @@
 <ion-content *ngIf="hideData" class="back_img">
 <div class="middle_div" >
 
+  
+
   <div class="circleBase type3">
     <div class="cont_data">
     <p class="m_header">Your journey </p><p class="m_header">starts here</p>
@@ -28,8 +30,20 @@
     <ion-icon name="ios-arrow-down" class="icon_css"></ion-icon>
     </div> 
     
-   
+ 
   </div>
+  
+    <div class="small_candy" ><img class="small_candy_stick" src="assets/imgs/line.png"> </div>
+  <!--  <div class="small_candy1" ><img class="small_candy_stick" src="assets/imgs/line.png"> </div>
+    <div class="small_candy2" ><img class="small_candy_stick" src="assets/imgs/line.png"> </div>
+    <div class="small_candy3" ><img class="small_candy_stick" src="assets/imgs/line.png"> </div>
+    <div class="small_candy4" ><img class="small_candy_stick" src="assets/imgs/line.png"> </div> -->
+
+    <div class="small_midd" *ngFor="let candy of small_candy_count ; let i= index ">
+        <div class="small_candy" ><img *ngIf=" i == 7 ? false : true " class="small_candy_stick" src="assets/imgs/line.png"> </div>
+    </div>
+  
+    
   
 </div>
 
@@ -59,7 +73,7 @@
              
               <div>
               <span  *ngFor="let ic of ion_icons ; let i = index">
-                  <ion-icon *ngIf=" i < child_count [j] ? true :false " class="ic_colors" name={{ic}}></ion-icon> 
+                  <ion-icon *ngIf=" i < child_count [j] ? true :false "  [ngClass] = "  myjourney_read[i] == 1 ? 'ic_read_colors' :'ic_colors' " name={{ic}}></ion-icon> 
               </span>
               </div>
               </div>

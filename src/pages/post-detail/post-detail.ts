@@ -1,9 +1,13 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams,LoadingController, Content } from 'ionic-angular';
+import { IonicPage, NavController, NavParams,LoadingController, Content ,ViewController } from 'ionic-angular';
+import { PostsPage } from '../posts/posts';
+import { Storage } from '@ionic/storage';
 
 import { Http } from '@angular/http';
 import 'rxjs/add/operator/map';
 
+import { ViewChild } from '@angular/core';
+import { Navbar } from 'ionic-angular';
 /**
  * Generated class for the PostDetailPage page.
  *
@@ -20,7 +24,7 @@ export class PostDetailPage {
 
 
   public postDescription:Array<any> =new Array();
-  id : Number;
+  id : any;
   title : any;
   parent_color: any;
   header_title : any;
@@ -28,12 +32,13 @@ export class PostDetailPage {
   btn_text: String;
   index:number=0;
   length :number;
+  grand_parent_id:any;
   hide_show:boolean=false;
   imgUrl:any;
   public hideData:boolean=false;
+  @ViewChild(Navbar) navBar: Navbar;
 
-
-  constructor(public http:Http, public navCtrl: NavController, public navParams: NavParams,public loadCtrl:LoadingController) {
+  constructor(public storage:Storage,public http:Http, public navCtrl: NavController, public navParams: NavParams,public loadCtrl:LoadingController) {
   }
 
   ionViewDidLoad() {
@@ -41,11 +46,12 @@ export class PostDetailPage {
     this.id=this.navParams.get('id');
     this.header_title=this.navParams.get('title');
     this.parent_color=this.navParams.get('parent_color');
-
+    this.grand_parent_id=this.navParams.get('parent_id');
     console.log(this.id);
     console.log(this.parent_color);
+   
+      this.getData();
 
-    this.getData();
          
   }
       
@@ -112,6 +118,12 @@ export class PostDetailPage {
               else{
                 this.btn_text="Next";
               }
+          }
+          
+          else
+          {
+            this.storage.set(this.id,1);
+            this.navCtrl.pop();
           }
 
 
