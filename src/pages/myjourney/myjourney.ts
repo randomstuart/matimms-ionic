@@ -1,9 +1,12 @@
 import { Component } from '@angular/core';
+
 import { IonicPage, NavController, NavParams,LoadingController } from 'ionic-angular';
 import { PostsPage} from '../posts/posts';
 
 import { Storage } from '@ionic/storage';
 import { Http } from '@angular/http';
+
+
 import 'rxjs/add/operator/map';
 
 
@@ -21,13 +24,14 @@ import 'rxjs/add/operator/map';
   templateUrl: 'myjourney.html',
 })
 export class MyjourneyPage {
+  
 
   public chapterList:Array<string> = new Array();
   
 
 //  public childCount:Array<number> = new Array(); 
   public small_candy_count :Array<number>=new Array();
-  
+  public color_array : Array<any>=new Array();  
 
   public lastElement: any;
   public txtLastCircle:String;
@@ -44,20 +48,20 @@ export class MyjourneyPage {
 
  // public colors  =['first','second','third','four','five'];
  // buttonColor: string = '#000';
-
+ 
   constructor(public storage:Storage, private http:Http,public navCtrl: NavController, public navParams: NavParams,public loadingCtrl:LoadingController) {
+    
   
-      
   }
 
   ionViewDidLoad() {
 
-    let loader = this.loadingCtrl.create({
+    let loader = this.loadingCtrl.create({  
       spinner: 'bubbles',
       content: "Please wait..."            
     });  
       
-    loader.present(); 
+    loader.present();     
 
     this.ion_icons.push("square");
     this.ion_icons.push("cloud");
@@ -75,6 +79,16 @@ export class MyjourneyPage {
     this.small_candy_count.push(6);
     this.small_candy_count.push(7);  
     this.small_candy_count.push(8);
+
+    this.color_array.push("#e8789d");
+    this.color_array.push("#8946ff");
+    this.color_array.push("#58cebb");
+    
+    this.color_array.push("#1a95d2");
+    this.color_array.push("transparent");
+    this.color_array.push("#f4a876");       
+    this.color_array.push("#12b6e8");
+    this.color_array.push("#8bc34a");
 
 
     console.log('ionViewDidLoad MyjourneyPage');
@@ -179,7 +193,7 @@ for(let i=0; i< data.length ; i++ )
       
     });  
 
-    
+ 
 
   }
 
@@ -193,6 +207,9 @@ for(let i=0; i< data.length ; i++ )
     };
 
 };
+
+
+
 
 SortedArray(){
 this.chapterList.sort(this.sortByProperty('menu_order'));
@@ -221,3 +238,4 @@ openSlider(id,title,back_color,dark_color){
 
 
 }
+  

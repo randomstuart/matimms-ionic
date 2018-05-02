@@ -105,7 +105,9 @@ page-myjourney {
 
 .check_css{
     color:#32db64;
-    font-size: 12.2rem;
+    font-size: 14.2rem;
+    font-weight: bold;
+    margin-top: -60px;
 }
 
 .Last_div{
@@ -136,11 +138,13 @@ page-myjourney {
 .small_candy{
     border-radius: 50%;
     margin-left: 2%;
-    width: 25px;
-    height: 25px;
+    width: 20px;
+    height: 20px;
     background: white;
     text-align: center;
     position: fixed;
+    border: white 4px solid;
+    margin-top:  -50%;
   //  background: url(../assets/imgs/line.png) repeat-y top;
 
 }
@@ -152,7 +156,14 @@ page-myjourney {
 
 }
 
+.small_candy_stick{
 
+    width: 40%;
+    height: 180%;
+    margin-top: 125%;
+}
+
+/*
 .small_candy1{
     margin-top: 9%;
     border-radius: 50%;
@@ -204,10 +215,28 @@ page-myjourney {
   //  background: url(../assets/imgs/line.png) repeat-y top;
 
 }
+*/
 
-.small_candy_stick{
 
-    width: 40%;
-    height: 60%;
-    margin-top: 100%;
+.temp_one{
+   
+    height: 0%;
+    overflow: hidden;
+    display: table;
+    background: url(../assets/imgs/line.png) repeat-y top;
+    background-size: 20%;
+    margin-left: 3%;
+    position: fixed;
+    margin-top: -50%;
+}
+
+
+.temp_circle {
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    background: white;
+    margin-bottom: 50%;
+    border: white 4px solid;
+    
 }

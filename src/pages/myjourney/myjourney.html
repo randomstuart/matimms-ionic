@@ -4,25 +4,29 @@
   See http://ionicframework.com/docs/components/#navigation for more info on
   Ionic pages and navigation.
 -->
-<ion-header >
+<ion-header>
 
-  <ion-navbar color="primary">
-    <ion-buttons end>
+  <ion-navbar hideBackButton="true" color="primary" >
+    <ion-buttons end  >
         <button ion-button menuToggle >
           <ion-icon name="menu"></ion-icon>
         </button>
     </ion-buttons>
-    <ion-title>My Journey</ion-title>
+    <ion-title>MatImms</ion-title>
   </ion-navbar>
 
 </ion-header>
 
-<ion-content *ngIf="hideData" class="back_img">
-<div class="middle_div" >
+<ion-content *ngIf="hideData" class="back_img"  >
 
+    
+
+
+<div class="middle_div" >
+    
   
 
-  <div class="circleBase type3">
+  <div class="circleBase type3" >
     <div class="cont_data">
     <p class="m_header">Your journey </p><p class="m_header">starts here</p>
     <p class="circle_one">Pregnancy is an exciting time for you and your family!</p>
@@ -33,15 +37,17 @@
  
   </div>
   
-    <div class="small_candy" ><img class="small_candy_stick" src="assets/imgs/line.png"> </div>
-  <!--  <div class="small_candy1" ><img class="small_candy_stick" src="assets/imgs/line.png"> </div>
-    <div class="small_candy2" ><img class="small_candy_stick" src="assets/imgs/line.png"> </div>
-    <div class="small_candy3" ><img class="small_candy_stick" src="assets/imgs/line.png"> </div>
-    <div class="small_candy4" ><img class="small_candy_stick" src="assets/imgs/line.png"> </div> -->
+  <div class="temp_one"   >
+      <div [ngStyle]="{'background-color' :  color_array[i] }" class="temp_circle" *ngFor="let candy of small_candy_count ; let i= index ">
 
+      </div>
+  </div>  
+  
+<!--
     <div class="small_midd" *ngFor="let candy of small_candy_count ; let i= index ">
-        <div class="small_candy" ><img *ngIf=" i == 7 ? false : true " class="small_candy_stick" src="assets/imgs/line.png"> </div>
-    </div>
+        <div [ngStyle]="{'background-color' :  color_array[i] }" class="small_candy " ><img *ngIf=" i == 7 ? false : true " class="small_candy_stick" src="assets/imgs/line.png"> </div>
+        
+    </div> -->
   
     
   
@@ -82,11 +88,7 @@
         </div>
        
 
-      
-
-    
-
-    </div>
+</div>
      
 
     <div class="Last_div" > 
@@ -102,17 +104,9 @@
           </div>    
           
         </div>
-       
-
-      
+   
+    </div>  
 
     
-
-    </div>    
-   
-
-
-     
-
-
+  
 </ion-content>
