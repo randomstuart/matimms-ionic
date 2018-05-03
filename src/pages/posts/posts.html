@@ -39,7 +39,8 @@
                   <ion-col> {{child.id}}
                     <ion-icon [ngClass]="read_id[i] == 1 ? 'ion_read_color' :  'ion_color'"  name={{post_icon}}></ion-icon>
 
-                    <p>Not complete</p>  
+                    <p *ngIf=" read_id[i] == 1  ? false : true">Not complete</p>
+                    <p *ngIf=" read_id[i] == 1  ? true : false">Completed</p>   
                   </ion-col>
                   
               </ion-row>

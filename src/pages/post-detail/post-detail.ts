@@ -104,7 +104,7 @@ export class PostDetailPage {
         
 
   nextPage(){
-
+          
           if(this.btn_text=="Next")
           {
               this.index++;
@@ -124,6 +124,7 @@ export class PostDetailPage {
           {
             this.storage.set(this.id,1);
             this.navCtrl.pop();
+            
           }
 
 
@@ -156,6 +157,8 @@ export class PostDetailPage {
         }
 
 }
+
+
 
 }
    

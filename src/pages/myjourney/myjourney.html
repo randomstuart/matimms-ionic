@@ -36,18 +36,16 @@
     
  
   </div>
-  
-  <div class="temp_one"   >
-      <div [ngStyle]="{'background-color' :  color_array[i] }" class="temp_circle" *ngFor="let candy of small_candy_count ; let i= index ">
+
+
+  <div class="back_attach">
+    <div *ngFor="let candy of small_candy_count ; let i= index "  [ngClass]=" i== 7 ? 'last_small_candy_stick' : 'small_candy_stick' ">
+      <div [ngStyle]="{'background-color' :  color_array[i] }" class="small_candy" >
 
       </div>
-  </div>  
-  
-<!--
-    <div class="small_midd" *ngFor="let candy of small_candy_count ; let i= index ">
-        <div [ngStyle]="{'background-color' :  color_array[i] }" class="small_candy " ><img *ngIf=" i == 7 ? false : true " class="small_candy_stick" src="assets/imgs/line.png"> </div>
-        
-    </div> -->
+    </div>  
+  </div>
+
   
     
   
@@ -75,14 +73,30 @@
               <p class="dynamic_header">{{chapter.title.rendered}}</p>
 
               <div class="circle_align_btn">
-              <button ion-button color="secondary" class="dynamic_button" (click)="openSlider(chapter.id,chapter.title.rendered,chapter.meta_color.light,chapter.meta_color.dark)"  [ngStyle]="{'background-color' : chapter.meta_color.light}">LET'S GO</button>
-             
+           <!--   <button ion-button color="secondary" class="dynamic_button" (click)="openSlider(chapter.id,chapter.title.rendered,chapter.meta_color.light,chapter.meta_color.dark)"  [ngStyle]="{'background-color' : chapter.meta_color.light}">LET'S GO</button>
+           -->
+         
               <div>
-              <span  *ngFor="let ic of ion_icons ; let i = index">
-                  <ion-icon *ngIf=" i < child_count [j] ? true :false "  [ngClass] = "  myjourney_read[i] == 1 ? 'ic_read_colors' :'ic_colors' " name={{ic}}></ion-icon> 
+              <span  *ngFor="let ic of ion_icons ; let i = index  ">  
+              
+                  <span *ngIf=" i < child_count [j] ? true :false ">
+                
+               <!--   <ion-icon *ngIf=" chapter.id == myjourney_global[j] ? true : false"  [ngClass] = "myjourney_read1[i] == 1 && chapter.id == myjourney_global[j]? 'ic_read_colors' :'ic_colors' " name={{ic}}></ion-icon>
+               -->
+
+                  <ion-icon *ngIf=" chapter.id == 25 ? true : false" [ngClass] = "myjourney_read[i] == 1 && chapter.id == 25? 'ic_read_colors' :'ic_colors' " name={{ic}}></ion-icon>
+                  <ion-icon *ngIf=" chapter.id == 35 ? true : false" [ngClass] = "myjourney_read1[i] == 1 && chapter.id == 35? 'ic_read_colors' :'ic_colors' " name={{ic}}></ion-icon>
+                  <ion-icon *ngIf=" chapter.id == 186 ? true : false" [ngClass] = "myjourney_read2[i] == 1 && chapter.id == 186? 'ic_read_colors' :'ic_colors' " name={{ic}}></ion-icon>
+                  <ion-icon *ngIf=" chapter.id == 59 ? true : false" [ngClass] = "myjourney_read3[i] == 1 && chapter.id == 59? 'ic_read_colors' :'ic_colors' " name={{ic}}></ion-icon>
+                  <ion-icon *ngIf=" chapter.id == 619 ? true : false" [ngClass] = "myjourney_read4[i] == 1 && chapter.id == 619? 'ic_read_colors' :'ic_colors' " name={{ic}}></ion-icon>                
+                  </span>
+                  
               </span>
+              
+              <p> {{read_complete_count[j]}} out of {{child_count[j]}} complete</p> 
               </div>
-              </div>
+              <button ion-button color="secondary" class="dynamic_button" (click)="openSlider(chapter.id,chapter.title.rendered,chapter.meta_color.light,chapter.meta_color.dark)"  [ngStyle]="{'background-color' : chapter.meta_color.light}">LET'S GO</button>
+            </div>
           </div>    
           
         </div>

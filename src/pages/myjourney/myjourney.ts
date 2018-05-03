@@ -45,9 +45,18 @@ export class MyjourneyPage {
 
   public childs: Array<any> =new Array();
   public myjourney_read:Array<any>=new Array();
-
+  public myjourney_read1:Array<any>=new Array();
+  public myjourney_read2:Array<any>=new Array();
+  public myjourney_read3:Array<any>=new Array();
+  public myjourney_read4:Array<any>=new Array();   
+  
+   
+  public myjourney_global:Array<any>=new Array();
+  public read_complete_count: Array<any>=new Array();
+  public read_count : number=0;
+  
  // public colors  =['first','second','third','four','five'];
- // buttonColor: string = '#000';
+ // buttonColor: string = '#000';   
  
   constructor(public storage:Storage, private http:Http,public navCtrl: NavController, public navParams: NavParams,public loadingCtrl:LoadingController) {
     
@@ -65,12 +74,12 @@ export class MyjourneyPage {
 
     this.ion_icons.push("square");
     this.ion_icons.push("cloud");
-    this.ion_icons.push("egg");
+    this.ion_icons.push("egg");  
     this.ion_icons.push("heart");
     this.ion_icons.push("medical");
     this.ion_icons.push("star");
 
-
+  
     this.small_candy_count.push(1);
     this.small_candy_count.push(2);
     this.small_candy_count.push(3);
@@ -90,7 +99,7 @@ export class MyjourneyPage {
     this.color_array.push("#12b6e8");
     this.color_array.push("#8bc34a");
 
-
+   
     console.log('ionViewDidLoad MyjourneyPage');
 
     this.http.get("http://matimms.org.uk/wp-json/wp/v2/journey?filter%5Bposts_per_page%5D=-1&filter%5Border%5D=ASC&filer%5Borderby%5D=menu_order")
@@ -105,7 +114,7 @@ export class MyjourneyPage {
             //this.myData = data[i];
             console.log(data[i]);
 
-            this.chapterList.push(data[i]);                 
+            this.chapterList.push(data[i]);                        
 
             this.chapterList.sort();
               
@@ -117,13 +126,123 @@ export class MyjourneyPage {
    
              this.storage.get(data[i].id).then(id=>{
       
-             this.myjourney_read.push(id); 
+                
+ 
+            this.myjourney_read.push(id); 
+              
+      
+             console.log("first"+this.myjourney_read);
+
+             this.read_count=0;
+             for(let i=0;i<this.myjourney_read.length;i++){
+                  if(this.myjourney_read[i]==1){
+                    this.read_count++;
+                  }
+                  
+             }
+              this.read_complete_count[0]=this.read_count;
+            
+             });
+                
+          }
+  
+          else if(data[i].parent == 35 )  
+          {
+             this.childs.push(data[i]);
+   
+             this.storage.get(data[i].id).then(id=>{
+      
+             this.myjourney_read1.push(id); 
       
       
-             console.log(this.myjourney_read);  
+             console.log("second"+this.myjourney_read1);  
+             this.read_count=0;
+             for(let i=0;i<this.myjourney_read1.length;i++){
+                  if(this.myjourney_read1[i]==1){
+                    this.read_count++;
+                  }
+                  
+             }
+              this.read_complete_count[1]=this.read_count;  
+
              });
      
-          }         
+          }
+          
+          else if(data[i].parent == 186 )  
+          {
+             this.childs.push(data[i]);
+   
+             this.storage.get(data[i].id).then(id=>{
+      
+             this.myjourney_read2.push(id); 
+      
+      
+             console.log("third"+this.myjourney_read2);
+             this.read_count=0;
+             for(let i=0;i<this.myjourney_read2.length;i++){
+                  if(this.myjourney_read2[i]==1){
+                    this.read_count++;
+                  }
+                  
+             }
+              this.read_complete_count[2]=this.read_count; 
+             
+
+
+             });
+     
+          }
+
+          else if(data[i].parent == 59 )    
+          {
+             this.childs.push(data[i]);
+   
+             this.storage.get(data[i].id).then(id=>{
+      
+             this.myjourney_read3.push(id);          
+      
+           
+             console.log("fourth"+this.myjourney_read3);   
+             this.read_count=0;
+             for(let i=0;i<this.myjourney_read3.length;i++){
+                  if(this.myjourney_read3[i]==1){
+                    this.read_count++;
+                  }
+                  
+             }
+              this.read_complete_count[3]=this.read_count; 
+             
+
+
+             });
+     
+          }
+
+          else if(data[i].parent == 619 )  
+          {
+             this.childs.push(data[i]);
+   
+             this.storage.get(data[i].id).then(id=>{
+      
+             this.myjourney_read4.push(id); 
+              
+      
+             console.log("fifth"+this.myjourney_read4);  
+             this.read_count=0;
+             for(let i=0;i<this.myjourney_read4.length;i++){
+                  if(this.myjourney_read4[i]==1){
+                    this.read_count++;
+                  }
+                  
+             }
+              this.read_complete_count[4]=this.read_count; 
+
+
+             });
+     
+          }
+          
          
             
       }
@@ -137,6 +256,8 @@ export class MyjourneyPage {
       {
         this.abc=this.chapterList[j];
         console.log(this.abc.id);
+        this.myjourney_global.push(this.abc.id);
+        console.log(this.myjourney_global[j]);     
         this.count=0; 
         for(let i=0; i<data.length;i++)
         {
