@@ -17,20 +17,42 @@
 
 </ion-header>
 
-<ion-content *ngIf="hideData">
+<ion-content [ngClass]=" child_id == 39 || child_id == 41 ? 'tiger_background_color' : 'none_background_color' " *ngIf="hideData">
   
       <div >
-        <h4 class="txt_center">{{title}}</h4>
-        <div class="img_div">  
+        <h4 [ngClass]=" child_id == 39 || child_id == 41 ? 'tiger_txt_center' : 'txt_center' " class="txt_center">{{title}}</h4>
+       <div *ngIf=" imgUrl == null ? false : true " class="img_div">  
           <img src="{{imgUrl}}" alt="image not found" >
         </div>  
-        <div class="p_txt_format" [innerHTML]="description">
+     
+        <div [ngClass]=" child_id == 39 || child_id == 41 ? 'tiger_p_txt_format' : 'p_txt_format' " class="p_txt_format" [innerHTML]="description">
            
-
+         
         </div>
-      <button class="prev_post_button" [ngStyle]="{'background-color':'gray'}" *ngIf="hide_show" ion-button (click)="prevPage()">Previous</button>
-      <button class="next_post_button" [ngStyle]="{'background-color':parent_color}" ion-button (click)="nextPage()">{{btn_text}}</button>
-      
+      <div *ngIf=" grand_parent_id == 35 && (child_id == 37 || child_id == 39) ? true : false ">
+        <div  *ngFor="let btn of postDescription[1].meta_answers ">
+        <div class="tiger_button_div" *ngIf="child_id == 39  ? true : false">
+          <span>
+              <button [ngStyle]="{'background-color':parent_color}" class="tiger_ans_btn" ion-button (click)="getAnswer(btn.correct)" >{{ btn.answer }}</button>
+          </span>
+        </div>
+        </div>
+      </div>
+
+      <div *ngIf="id == 178 ? true : false">
+        <div [ngStyle]="{'background-color':parent_color , 'padding-top': '5%' , 'padding-bottom' : '5%' }">
+         <button ion-button class="innate_button" [ngClass]=" innate == 0 ? 'vice_innate_button' : 'innate_button' "  (click)="innate_adaptive(postDescription[0].meta_title)">{{postDescription[0].meta_title}}</button>
+         <button ion-button class="adaptive_button" [ngClass]=" adaptive == 0 ? 'vice_adaptive_button' : 'adaptive_button' " (click)="innate_adaptive()">ADAPTIVE</button>
+         <div class="display_data" [innerHTML]="data_innate_adaptive">
+           
+         </div>
+        </div>
+      </div>
+
+      <button *ngIf=" id == 188 && child_id == 49 ? true : false " class="link_post_button" [ngStyle]="{'background-color':parent_color}" ion-button (click)="furtherReadPage()">LINK TO FURTHER READING</button>  
+      <button class="prev_post_button" [ngClass]="child_id == 39 || child_id == 41 ? 'tiger_prev_post_button' : 'prev_post_button ' " [ngStyle]="{'background-color':'gray'}" *ngIf="hide_show" ion-button (click)="prevPage()">Previous</button>
+      <button *ngIf=" child_id == 37 || child_id == 39  ? false : true" class="next_post_button" [ngClass]=" child_id == 41 ? 'tiger_next_post_button' : 'next_post_button' " [ngStyle]="{'background-color':parent_color}" ion-button (click)="nextPage()">{{btn_text}}</button>
+      <button *ngIf=" id == 184 && child_id == 37 ? true : false " class="tiger_post_button" [ngStyle]="{'background-color':parent_color}" ion-button (click)="nextPage()">{{postDescription[0].meta_link_text}}</button>
 
       </div>    
      

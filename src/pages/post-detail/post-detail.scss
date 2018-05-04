@@ -49,11 +49,10 @@ page-post-detail {
 
 .img_div{
     display: block;
-    margin-left: auto;
-    margin-right: auto;
-    width: 80%;
-    height: 100px;
-    border: 1px solid;
+    
+    width: 100%;
+    height: auto;
+   // border: 1px solid;
 }
 
 
@@ -78,4 +77,216 @@ page-post-detail {
     /* color: #424242; */
     background-color: transparent;
     color: white;
+}
+
+.tiger_post_button{
+    color: #fff;
+ //   background-color: #32db64;
+    border-radius: 40px !important;
+    height: 2.5em;
+    font-size: 1.6rem;
+    width: 90%;
+    margin: 0 auto;
+    display: block;
+}
+
+.round img {
+    display: block;
+    margin: 0 auto;
+    border-radius: 50%;
+}
+
+
+.tiger_button_div{ 
+   width: 100%;
+    display: inline-block;
+    margin-top: 7%;
+}
+
+.tiger_ans_btn{
+    color: #fff;
+    //   background-color: #32db64;
+       border-radius: 40px !important;
+       height: 2.5em;
+       font-size: 1.6rem;
+       width: 40%;
+    display: block;
+    margin: 0 auto;
+    background-color: rgb(26, 110, 210) !important;
+    text-transform: uppercase;
+}
+
+.alert-wrapper{
+
+    border-radius: 50% !important;
+    height: 275px;
+    background: #1a6ed2 !important;
+}
+
+.alert-head{
+
+    margin-top: 30%;
+}
+
+.alert-button{
+    font-size: 22px !important;
+}
+
+.alert-button-group{
+    background: #1ea9d4;
+    width: 60%;
+    margin: 0 auto;
+    border-radius: 40px !important;
+    height: 2.5em;
+    font-size: 1.6rem;
+}
+
+.alert-ios .alert-button{
+
+    color: #1a6ed2 ;
+    border: none ;    
+}
+
+.alert-md .alert-button{
+
+    color: #1a6ed2 ;
+    border: none ;   
+    margin : 0 auto ; 
+}
+
+.alert-ios .alert-button-group{
+    margin-right: auto ;
+    background: white;
+}
+
+.alert-md .alert-button-group{
+    margin-right: auto ;
+    background: white;
+}
+
+.tiger_background_color{
+
+    background-color:  rgb(26, 149, 210);
+}
+
+.tiger_prev_post_button{
+
+    color: #fff;
+ //   background-color: #32db64;
+    border-radius: 40px !important;
+    height: 2.5em;
+    font-size: 1.6rem;
+    width: 40%;
+    background-color: rgb(26, 110, 210) !important;
+    text-transform: uppercase;
+}
+
+.alert-ios .alert-title{
+    color: white;
+}
+
+.alert-md .alert-title{
+    color: white;
+}
+
+.tiger_next_post_button{
+
+    color: rgb(0, 89, 255);
+ //   background-color: #32db64;
+    border-radius: 40px !important;
+    height: 2.5em;
+    font-size: 1.6rem;
+    width: 40%;
+    float: right;
+    background-color: white !important;
+    text-transform: uppercase;
+}
+
+.tiger_txt_center{
+
+    text-align: center;
+    margin-top: 20%;
+    color:white;
+}
+
+.tiger_p_txt_format {
+
+    p{
+        margin: 10px;
+        /* margin-left: 10px; */
+        font-size: 16px;
+        color: white;
+    }
+
+
+    ul {
+        list-style-type: disc;
+        padding-left: 40px;
+        font-size: 15px;
+        color: white;
+    }
+    
+}
+
+.innate_button{
+
+       color: #fff;
+       background-color:  #46b9a3;
+       border-radius: 40px !important;
+       height: 2.5em;
+       font-size: 1.6rem;
+       width: 40%;
+       text-transform: uppercase; 
+}
+
+.adaptive_button{
+
+       color: #fff;
+       background-color: #46b9a3;
+       border-radius: 40px !important;
+       height: 2.5em;
+       font-size: 1.6rem;
+       width: 40%;
+       float: right;
+}
+
+.vice_innate_button{
+
+       color: #46b9a3;
+       background-color: white;
+       border-radius: 40px !important;
+       height: 2.5em;
+       font-size: 1.6rem;
+       width: 40%;
+       text-transform: uppercase; 
+}
+
+.vice_adaptive_button{
+
+       color: #46b9a3;
+       background-color: white;
+       border-radius: 40px !important;
+       height: 2.5em;
+       font-size: 1.6rem;
+       width: 40%;
+       float: right;
+}
+
+
+
+.display_data{
+    margin: 10px;
+    font-size: 16px;
+    color: white;
+}
+
+
+.link_post_button {
+    width: 80%;
+    border-radius: 40px !important;
+    height: 2.5em;
+    font-size: 1.6rem;
+    margin: 10% auto !important;
+    display: block;
+    margin-top: 10%;
 }

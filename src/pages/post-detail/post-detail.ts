@@ -2,12 +2,12 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams,LoadingController, Content ,ViewController } from 'ionic-angular';
 import { PostsPage } from '../posts/posts';
 import { Storage } from '@ionic/storage';
-
+import { FurtherReadingPage } from '../further-reading/further-reading';
 import { Http } from '@angular/http';
 import 'rxjs/add/operator/map';
 
 import { ViewChild } from '@angular/core';
-import { Navbar } from 'ionic-angular';
+import { Navbar , AlertController } from 'ionic-angular';
 /**
  * Generated class for the PostDetailPage page.
  *
@@ -26,6 +26,7 @@ export class PostDetailPage {
   public postDescription:Array<any> =new Array();
   id : any;
   title : any;
+  child_id :any ;
   parent_color: any;
   header_title : any;
   description : any;
@@ -36,9 +37,13 @@ export class PostDetailPage {
   hide_show:boolean=false;
   imgUrl:any;
   public hideData:boolean=false;
+  public data_innate_adaptive : any;
+  public innate : number = 0;
+  public adaptive: number = 1;
+
   @ViewChild(Navbar) navBar: Navbar;
 
-  constructor(public storage:Storage,public http:Http, public navCtrl: NavController, public navParams: NavParams,public loadCtrl:LoadingController) {
+  constructor(public alertCtrl: AlertController ,public storage:Storage,public http:Http, public navCtrl: NavController, public navParams: NavParams,public loadCtrl:LoadingController) {
   }
 
   ionViewDidLoad() {
@@ -47,13 +52,13 @@ export class PostDetailPage {
     this.header_title=this.navParams.get('title');
     this.parent_color=this.navParams.get('parent_color');
     this.grand_parent_id=this.navParams.get('parent_id');
-    console.log(this.id);
+    console.log("SubPost"+this.id);
     console.log(this.parent_color);
    
       this.getData();
 
          
-  }
+  }      
       
   getData()
   {
@@ -75,19 +80,24 @@ export class PostDetailPage {
                       this.postDescription.push(data[i]);            
                     
                   }
-            }
+            }            
   
           this.length=this.postDescription.length;   
           console.log(this.postDescription.length);
           console.log(this.postDescription);    
-            
+          console.log();  
                  
             this.title = this.postDescription[this.index].title.rendered;                 
-            this.description = this.postDescription[this.index].content.rendered; 
+            this.description = this.postDescription[this.index].content.rendered;
+            this.child_id = this.postDescription[this.index].id; 
             this.imgUrl=this.postDescription[this.index].featured_image_medium;
-            console.log(this.title);        
-          
-          if(this.postDescription.length-1 == this.index)
+           
+            if( this.id == 178)
+              this.data_innate_adaptive=this.postDescription[0].meta_information;
+
+            console.log(this.title);            
+            console.log(this.child_id);
+          if(this.postDescription.length-1 == this.index)       
           {
             this.btn_text="Done";
           }
@@ -101,7 +111,7 @@ export class PostDetailPage {
 
         
   }
-        
+                  
 
   nextPage(){
           
@@ -110,7 +120,8 @@ export class PostDetailPage {
               this.index++;
               this.title = this.postDescription[this.index].title.rendered;
               this.description = this.postDescription[this.index].content.rendered;
-              
+              this.child_id = this.postDescription[this.index].id; 
+              this.imgUrl=this.postDescription[this.index].featured_image_medium;
               if(this.postDescription.length-1 == this.index)
               {
                 this.btn_text="Done";
@@ -125,26 +136,26 @@ export class PostDetailPage {
             this.storage.set(this.id,1);
             this.navCtrl.pop();
             
-          }
-
+          }    
+     
 
           if(this.index!=0)
           {
             this.hide_show=true;
-          }
+          }          
 
-  }
+  }   
 
   prevPage(){
 
        this.index--;
        this.title = this.postDescription[this.index].title.rendered;
        this.description = this.postDescription[this.index].content.rendered;
-
-
+       this.child_id = this.postDescription[this.index].id;  
+       this.imgUrl=this.postDescription[this.index].featured_image_medium;
        if(this.index==0)
           {
-            this.hide_show=false;
+            this.hide_show=false;     
           }
           
   
@@ -155,7 +166,49 @@ export class PostDetailPage {
        else{
           this.btn_text="Next";
         }
+    
+}
 
+getAnswer(answer){
+
+    console.log("Answer");
+
+    if(answer == true)
+    {
+        this.nextPage();  
+    }
+    else
+    {
+      let alert = this.alertCtrl.create({
+        title: "Nope you're wrong! ",
+        buttons: ['OKAY']
+      });
+      alert.present();
+    }
+
+}
+
+
+innate_adaptive(total_data){
+
+  if( total_data == "Innate" )      
+  {
+    this.innate = 0;  
+    this.adaptive = 1;  
+    this.data_innate_adaptive=this.postDescription[0].meta_information;
+  }
+  else
+  {
+    this.innate = 1;
+    this.adaptive = 0;
+    this.data_innate_adaptive=this.postDescription[0].meta_information_2;
+  }
+
+}
+
+furtherReadPage(){
+
+  this.navCtrl.push(FurtherReadingPage);
 }
 
 
