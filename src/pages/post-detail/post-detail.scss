@@ -1,5 +1,9 @@
 page-post-detail {
 
+    
+
+
+
 }
 
 .p_txt_format{
@@ -160,7 +164,7 @@ page-post-detail {
 }
 
 .alert-md .alert-button-group{
-    margin-right: auto ;
+    padding: 0px ;
     background: white;
 }
 
@@ -179,6 +183,7 @@ page-post-detail {
     width: 40%;
     background-color: rgb(26, 110, 210) !important;
     text-transform: uppercase;
+    margin-top: 10%;
 }
 
 .alert-ios .alert-title{
@@ -187,6 +192,7 @@ page-post-detail {
 
 .alert-md .alert-title{
     color: white;
+    text-align: center;
 }
 
 .tiger_next_post_button{
@@ -200,6 +206,7 @@ page-post-detail {
     float: right;
     background-color: white !important;
     text-transform: uppercase;
+    margin-top: 10%;
 }
 
 .tiger_txt_center{
@@ -290,3 +297,43 @@ page-post-detail {
     display: block;
     margin-top: 10%;
 }
+
+.how_vaccines_button{
+    color: #fff;
+ //   background-color: #32db64;
+    border-radius: 40px !important;
+    height: 2.5em;
+    font-size: 1.6rem;
+    width: 90%;
+    margin: 0 auto;
+    display: block;
+    margin-top: 5%;
+}
+
+.show_data{
+
+    margin: 10px;
+    font-size: 16px;
+    
+}
+
+.show_data ul {
+    list-style-type: disc;
+    padding-left: 28px !important;
+}
+
+.p_txt_format blockquote{
+
+    border-left: 5px;
+    border-left-color: black;
+    border-left-style: solid;
+    margin: 2%;
+}
+
+.link_post_button a{
+
+    text-decoration: none;
+    color: white;
+    text-transform: uppercase;
+} 
+

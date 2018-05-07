@@ -4,7 +4,7 @@
   See http://ionicframework.com/docs/components/#navigation for more info on
   Ionic pages and navigation.
 -->
-<ion-header>
+<ion-header >
 
   <ion-navbar class="temp" [ngStyle]="{'background-color' : parent_color}">
     <ion-buttons end>
@@ -39,6 +39,16 @@
         </div>
       </div>
 
+      <div *ngIf=" child_id == 45 ? true : false">
+        <div *ngFor="let hvw of postDescription[0].meta_more_details; let i = index ">
+          <button class="how_vaccines_button" [ngStyle]="{'background-color':parent_color}" ion-button (click)="getInfo(i,hvw.content)">{{ hvw.label }}</button>
+          <div *ngIf =" i == how_vaccines_index ? true : false " class="show_data" [innerHTML]="how_vaccines_info">
+            
+          </div>
+        </div>
+
+      </div>
+
       <div *ngIf="id == 178 ? true : false">
         <div [ngStyle]="{'background-color':parent_color , 'padding-top': '5%' , 'padding-bottom' : '5%' }">
          <button ion-button class="innate_button" [ngClass]=" innate == 0 ? 'vice_innate_button' : 'innate_button' "  (click)="innate_adaptive(postDescription[0].meta_title)">{{postDescription[0].meta_title}}</button>
@@ -50,6 +60,7 @@
       </div>
 
       <button *ngIf=" id == 188 && child_id == 49 ? true : false " class="link_post_button" [ngStyle]="{'background-color':parent_color}" ion-button (click)="furtherReadPage()">LINK TO FURTHER READING</button>  
+      <button *ngIf=" child_id == 97 || child_id == 112 || child_id == 114 || child_id == 116 || child_id == 81 || child_id == 616 || child_id == 617  ? true : false " class="link_post_button" [ngStyle]="{'background-color':parent_color}" ion-button ><a href="{{whooping_meta_link_url}}">{{ whooping_meta_link_text }}</a></button>  
       <button class="prev_post_button" [ngClass]="child_id == 39 || child_id == 41 ? 'tiger_prev_post_button' : 'prev_post_button ' " [ngStyle]="{'background-color':'gray'}" *ngIf="hide_show" ion-button (click)="prevPage()">Previous</button>
       <button *ngIf=" child_id == 37 || child_id == 39  ? false : true" class="next_post_button" [ngClass]=" child_id == 41 ? 'tiger_next_post_button' : 'next_post_button' " [ngStyle]="{'background-color':parent_color}" ion-button (click)="nextPage()">{{btn_text}}</button>
       <button *ngIf=" id == 184 && child_id == 37 ? true : false " class="tiger_post_button" [ngStyle]="{'background-color':parent_color}" ion-button (click)="nextPage()">{{postDescription[0].meta_link_text}}</button>

@@ -3,8 +3,9 @@ import { IonicPage, NavController, NavParams,LoadingController, Content ,ViewCon
 import { PostsPage } from '../posts/posts';
 import { Storage } from '@ionic/storage';
 import { FurtherReadingPage } from '../further-reading/further-reading';
+
 import { Http } from '@angular/http';
-import 'rxjs/add/operator/map';
+import 'rxjs/add/operator/map';   
 
 import { ViewChild } from '@angular/core';
 import { Navbar , AlertController } from 'ionic-angular';
@@ -40,12 +41,17 @@ export class PostDetailPage {
   public data_innate_adaptive : any;
   public innate : number = 0;
   public adaptive: number = 1;
-
+  public how_vaccines_info : any;
+  public how_vaccines_index : number = -1;
+  public whooping_meta_link_text : any;
+  public whooping_meta_link_url : any;
+  
   @ViewChild(Navbar) navBar: Navbar;
 
   constructor(public alertCtrl: AlertController ,public storage:Storage,public http:Http, public navCtrl: NavController, public navParams: NavParams,public loadCtrl:LoadingController) {
+      
   }
-
+    
   ionViewDidLoad() {
     console.log('ionViewDidLoad PostDetailPage');
     this.id=this.navParams.get('id');
@@ -91,13 +97,16 @@ export class PostDetailPage {
             this.description = this.postDescription[this.index].content.rendered;
             this.child_id = this.postDescription[this.index].id; 
             this.imgUrl=this.postDescription[this.index].featured_image_medium;
-           
+            this.whooping_meta_link_text=this.postDescription[this.index].meta_link_text;
+            this.whooping_meta_link_url=this.postDescription[this.index].meta_link_url;
+
             if( this.id == 178)
               this.data_innate_adaptive=this.postDescription[0].meta_information;
 
             console.log(this.title);            
             console.log(this.child_id);
-          if(this.postDescription.length-1 == this.index)       
+            console.log(this.whooping_meta_link_url);
+          if(this.postDescription.length-1 == this.index)            
           {
             this.btn_text="Done";
           }
@@ -111,7 +120,7 @@ export class PostDetailPage {
 
         
   }
-                  
+                         
 
   nextPage(){
           
@@ -122,6 +131,8 @@ export class PostDetailPage {
               this.description = this.postDescription[this.index].content.rendered;
               this.child_id = this.postDescription[this.index].id; 
               this.imgUrl=this.postDescription[this.index].featured_image_medium;
+              this.whooping_meta_link_text=this.postDescription[this.index].meta_link_text;   
+              this.whooping_meta_link_url=this.postDescription[this.index].meta_link_url;           
               if(this.postDescription.length-1 == this.index)
               {
                 this.btn_text="Done";
@@ -153,6 +164,9 @@ export class PostDetailPage {
        this.description = this.postDescription[this.index].content.rendered;
        this.child_id = this.postDescription[this.index].id;  
        this.imgUrl=this.postDescription[this.index].featured_image_medium;
+       this.whooping_meta_link_text=this.postDescription[this.index].meta_link_text;
+       this.whooping_meta_link_url=this.postDescription[this.index].meta_link_url;
+
        if(this.index==0)
           {
             this.hide_show=false;     
@@ -209,6 +223,11 @@ innate_adaptive(total_data){
 furtherReadPage(){
 
   this.navCtrl.push(FurtherReadingPage);
+}
+
+getInfo(ind,information){
+  this.how_vaccines_info=information;
+  this.how_vaccines_index=ind;              
 }
 
 

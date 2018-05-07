@@ -10,6 +10,8 @@ import { Injectable } from '@angular/core';
 @Injectable()
 export class DataProvider {
 
+ 
+ 
   name:String = "global";
   ion_icons:Array<string> =new Array();
   

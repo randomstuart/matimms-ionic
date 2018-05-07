@@ -18,12 +18,12 @@ import { MyjourneyPage } from '../pages/myjourney/myjourney';
 })
 export class MyApp {
   @ViewChild(Nav) nav: Nav;
-
+  
   rootPage: any = HomePage;
 
   pages: Array<{title: string, component: any}>;
-
-  constructor(public platform: Platform, public statusBar: StatusBar, public splashScreen: SplashScreen) {
+ 
+  constructor( public platform: Platform, public statusBar: StatusBar, public splashScreen: SplashScreen) {
     this.initializeApp();
 
     // used for an example of ngFor and navigation
@@ -36,6 +36,7 @@ export class MyApp {
       { title: 'About us', component: AboutUsPage   }
     ];
 
+         
   }
 
   initializeApp() {
@@ -52,4 +53,8 @@ export class MyApp {
     // we wouldn't want the back button to show in this scenario
     this.nav.setRoot(page.component);
   }
+}
+
+declare global {
+ const foo: string ;
 }
