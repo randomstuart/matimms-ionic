@@ -1,0 +1,40 @@
+.two-theme{
+
+    ion-content.navigation-panel.content.content-md {
+        background-color: #58cebb !important;
+      }
+      
+      ion-content.navigation-panel.content.content-ios {
+        background-color:  #58cebb !important;
+      }
+      
+      .toolbar-title-md {
+        padding: 0 12px;
+        font-size: 2rem;
+        font-weight: 500;
+        color: white !important;
+      }
+      
+      
+      .toolbar-title-ios {
+        padding: 0 12px;
+        font-size: 2rem;
+        font-weight: 500;
+        color: white !important;
+      }
+      
+      .toolbar-background-md {
+        border-color: #b2b2b2;
+        background: rgb(26, 149, 210);
+      }
+      
+      .toolbar-background-ios {
+        border-color: #b2b2b2;
+        background: rgb(26, 149, 210) ;
+      }
+
+      ion-list.two-theme {
+        background: rgb(26, 149, 210);
+        height: 100%;
+    }
+}

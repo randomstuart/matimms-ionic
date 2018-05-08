@@ -82,20 +82,20 @@
                   <span *ngIf=" i < child_count [j] ? true :false ">
                 
                <!--   <ion-icon *ngIf=" chapter.id == myjourney_global[j] ? true : false"  [ngClass] = "myjourney_read1[i] == 1 && chapter.id == myjourney_global[j]? 'ic_read_colors' :'ic_colors' " name={{ic}}></ion-icon>
-               -->
-
-                  <ion-icon *ngIf=" chapter.id == 25 ? true : false" [ngClass] = "myjourney_read[i] == 1 && chapter.id == 25? 'ic_read_colors' :'ic_colors' " name={{ic}}></ion-icon>
-                  <ion-icon *ngIf=" chapter.id == 35 ? true : false" [ngClass] = "myjourney_read1[i] == 1 && chapter.id == 35? 'ic_read_colors' :'ic_colors' " name={{ic}}></ion-icon>
-                  <ion-icon *ngIf=" chapter.id == 186 ? true : false" [ngClass] = "myjourney_read2[i] == 1 && chapter.id == 186? 'ic_read_colors' :'ic_colors' " name={{ic}}></ion-icon>
-                  <ion-icon *ngIf=" chapter.id == 59 ? true : false" [ngClass] = "myjourney_read3[i] == 1 && chapter.id == 59? 'ic_read_colors' :'ic_colors' " name={{ic}}></ion-icon>
-                  <ion-icon *ngIf=" chapter.id == 619 ? true : false" [ngClass] = "myjourney_read4[i] == 1 && chapter.id == 619? 'ic_read_colors' :'ic_colors' " name={{ic}}></ion-icon>                
+               [ngClass] = "myjourney_read[i] == 1 && chapter.id == 25? 'ic_read_colors' :'ic_colors' "-->
+               
+                  <ion-icon *ngIf=" chapter.id == 25 ? true : false" [style.color] = " myjourney_read[i] == 1 && chapter.id == 25 ? chapter.meta_color.light : 'gray'"  name={{ic}}></ion-icon>
+                  <ion-icon *ngIf=" chapter.id == 35 ? true : false" [style.color] = " myjourney_read1[i] == 1 && chapter.id == 35 ? chapter.meta_color.light : 'gray'" name={{ic}}></ion-icon>
+                  <ion-icon *ngIf=" chapter.id == 186 ? true : false" [style.color] = "myjourney_read2[i] == 1 && chapter.id == 186? '#19CEBB' : 'gray' " name={{ic}}></ion-icon>
+                  <ion-icon *ngIf=" chapter.id == 59 ? true : false" [style.color] = "myjourney_read3[i] == 1 && chapter.id == 59? chapter.meta_color.light : 'gray' " name={{ic}}></ion-icon>
+                  <ion-icon *ngIf=" chapter.id == 619 ? true : false" [style.color] = "myjourney_read4[i] == 1 && chapter.id == 619? chapter.meta_color.light : 'gray' " name={{ic}}></ion-icon>                
                   </span>
                   
               </span>
               
               <p> {{read_complete_count[j]}} out of {{child_count[j]}} complete</p> 
               </div>
-              <button ion-button color="secondary" class="dynamic_button" (click)="openSlider(chapter.id,chapter.title.rendered,chapter.meta_color.light,chapter.meta_color.dark)"  [ngStyle]="{'background-color' : chapter.meta_color.light}">LET'S GO</button>
+              <button ion-button color="first" class="dynamic_button" (click)="openSlider(chapter.id,chapter.title.rendered,chapter.meta_color.light,chapter.meta_color.dark)"  [ngStyle]="{'background-color' : chapter.meta_color.light}">LET'S GO</button>
             </div>
           </div>    
           

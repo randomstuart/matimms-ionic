@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 
 import { IonicPage, NavController, NavParams,LoadingController } from 'ionic-angular';
 import { PostsPage} from '../posts/posts';
+import { DataProvider } from '../../providers/data/data';
 
 import { Storage } from '@ionic/storage';
 import { Http } from '@angular/http';
@@ -57,10 +58,10 @@ export class MyjourneyPage {
   
  // public colors  =['first','second','third','four','five'];
  // buttonColor: string = '#000';   
- 
-  constructor(public storage:Storage, private http:Http,public navCtrl: NavController, public navParams: NavParams,public loadingCtrl:LoadingController) {
-    
-  
+  selectedTheme : String;
+  constructor(private dataprovider: DataProvider, public storage:Storage, private http:Http,public navCtrl: NavController, public navParams: NavParams,public loadingCtrl:LoadingController) {
+      this.dataprovider.setActiveTheme('default-theme');       
+      this.dataprovider.getActiveTheme().subscribe(val => this.selectedTheme = val );
   }
 
   ionViewDidLoad() {
@@ -346,8 +347,8 @@ openSlider(id,title,back_color,dark_color){
 
     if( back_color == "" && dark_color == "")
     {
-      back_color="palevioletred";
-      dark_color="palevioletred";
+      back_color="#19CEBB";
+      dark_color="#19CEBB";  
     }
     
     console.log("back_color"+ back_color );

@@ -4,6 +4,9 @@ import { PostDetailPage } from '../post-detail/post-detail';
 import { Storage } from '@ionic/storage';
 import { Http } from '@angular/http';
 import 'rxjs/add/operator/map';
+import { MyjourneyPage } from '../myjourney/myjourney';
+import { Slides } from 'ionic-angular';
+import { DataProvider } from '../../providers/data/data';
 
 /**
  * Generated class for the PostsPage page.
@@ -19,7 +22,7 @@ import 'rxjs/add/operator/map';
 })
 export class PostsPage {
 
-  read_id : Array<any> =new Array();
+  public read_id : Array<any> =new Array();
   public childList:Array<any> = new Array();
   parent_title : String;  
   parent_id : any;
@@ -31,12 +34,38 @@ export class PostsPage {
   post_icon: string;
   icon_index : number = 0;
   ion_parent_icon:Array<string>=new Array();
-     
+  total_read_count: number=0;
+  nearly_btn_text : String = "READ" ;
+  nearly_header : String ="Nearly there";
+  slide_count : number= -1;
+  selectedTheme:String;
   @ViewChild('mySlider') mySlider;
-    
+  @ViewChild(Slides) slides: Slides;
   
+    
 
-  constructor(public storage:Storage,public http:Http, public navCtrl: NavController, public navParams: NavParams, public loadCtrl:LoadingController) {
+  constructor(private dataprovider: DataProvider, public storage:Storage,public http:Http, public navCtrl: NavController, public navParams: NavParams, public loadCtrl:LoadingController) {
+    
+    this.parent_id=this.navParams.get('id'); 
+    console.log(this.parent_id);
+    if( this.parent_id == 619)
+    {
+        this.dataprovider.setActiveTheme('five-theme');
+    }    
+    else if( this.parent_id == 59)
+    {
+        this.dataprovider.setActiveTheme('four-theme');
+    } 
+    else if( this.parent_id == 35)
+    {
+        this.dataprovider.setActiveTheme('two-theme');
+    } 
+    else
+    {
+      this.dataprovider.setActiveTheme('one-theme');
+    }
+
+
   }
 
   ionViewDidLoad() {
@@ -47,7 +76,7 @@ export class PostsPage {
     this.parent_id=this.navParams.get('id');      
     this.parent_title=this.navParams.get('title');
     this.parent_color=this.navParams.get('back_color');
-    this.parent_dark_color=this.navParams.get('dark_color');
+    this.parent_dark_color=this.navParams.get('dark_color');  
 
     this.ion_icons.push("square");
     this.ion_icons.push("cloud");
@@ -70,8 +99,9 @@ export class PostsPage {
 
 
     this.getPost();
-    
+  
 
+    
   }   
 
   
@@ -97,11 +127,29 @@ export class PostsPage {
               
               this.storage.get(data[i].id).then(id=>{
               
-              this.read_id.push(id);      
+              this.read_id.push(id); 
+              
+              if( id == 1)
+              {
+                this.total_read_count++;   
+              }
+
+
+              if(this.childList.length == this.total_read_count)
+             {
+               this.nearly_btn_text = "JOURNEY";
+               this.nearly_header = "Congratulations";
+                            
+             }
+
+                 
+             
          });
                 
           }
-        }
+        }   
+
+        
 
         
          
@@ -114,9 +162,7 @@ export class PostsPage {
         this.post_icon=this.ion_parent_icon[this.icon_index];
         this.hideData=true;
 
-
-
-      
+        
         loader.dismiss();
 
         
@@ -145,7 +191,7 @@ export class PostsPage {
   }
 
    
-  
+                
              
   slideChanged() { 
     console.log("slide CHANGED"+this.mySlider.getActiveIndex());  
@@ -157,7 +203,30 @@ export class PostsPage {
     console.log("Icon Index "+this.icon_index);           
   }    
 
+  goToJourney(){
 
+    if(this.nearly_btn_text == "JOURNEY")
+    this.navCtrl.push(MyjourneyPage);
+    else
+    {
+      for( let i=0; i<this.read_id.length ; i++)
+      {
+          if( this.read_id[i] == null)
+          {
+            this.slide_count = i;
+            break;
+          }
+          
+
+      }
+      this.slides.slideTo(this.slide_count, 500);
+    }
+
+  }
+
+  ionViewWillLeave() {
+    this.dataprovider.setActiveTheme('default-theme');
+  }
       
 
 }

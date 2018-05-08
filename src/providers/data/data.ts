@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { BehaviorSubject } from 'rxjs/Rx';
 
 /*
   Generated class for the DataProvider provider.
@@ -11,6 +12,7 @@ import { Injectable } from '@angular/core';
 export class DataProvider {
 
  
+  private theme : BehaviorSubject<String>;
  
   name:String = "global";
   ion_icons:Array<string> =new Array();
@@ -25,10 +27,17 @@ export class DataProvider {
     this.ion_icons.push("medical");
     this.ion_icons.push("star");
 
+    this.theme = new BehaviorSubject('one-theme');
 
   }
 
-
+  setActiveTheme(val){
+    this.theme.next(val);     
+  } 
+  
+  getActiveTheme(){
+    return this.theme.asObservable();
+  }
 
 
 }

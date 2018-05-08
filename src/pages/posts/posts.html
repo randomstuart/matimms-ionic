@@ -37,8 +37,8 @@
               <button ion-button class="card_button" [ngStyle]="{'background-color':parent_color}" (click)="postDetail(child.id,child.title.rendered)" >READ</button>
               <ion-row >
                   <ion-col> {{child.id}}
-                    <ion-icon [ngClass]="read_id[i] == 1 ? 'ion_read_color' :  'ion_color'"  name={{post_icon}}></ion-icon>
-
+                    <ion-icon [style.color] = "read_id[i] == 1 ? parent_color : 'gray'"  name={{post_icon}}></ion-icon>
+                    <!-- [ngClass]="read_id[i] == 1 ? 'ion_read_color' :  'ion_color'" -->  
                     <p *ngIf=" read_id[i] == 1  ? false : true">Not complete</p>
                     <p *ngIf=" read_id[i] == 1  ? true : false">Complete</p>   
                   </ion-col>
@@ -56,17 +56,17 @@
         <ion-slide>
             <ion-icon  class="post_icon" name="ios-arrow-back" ></ion-icon>
           <ion-card class="border_style ">
-              <ion-card-header class="card_header">Nearly there</ion-card-header>
+              <ion-card-header class="card_header">{{ nearly_header }}</ion-card-header>
 
               <ion-card-content class="card_content">
                 
-                <button ion-button class="card_button" [ngStyle]="{'background-color':parent_color}" (click)="postDetail(child.id,child.title.rendered)" >READ</button>    
+                <button ion-button  class="card_button" [ngStyle]="{'background-color':parent_color}" (click)="goToJourney()" >{{ nearly_btn_text }}</button>    
                 <ion-row >
                   <ion-col>   
                       <span *ngFor="let ic of ion_parent_icon ; let i =index;">
-                        <ion-icon *ngIf=" i < childList.length ? true : false "  [ngClass]="read_id[i] == 1 ? 'ion_read_color' :  'ion_color'" name={{ic}}></ion-icon> 
+                        <ion-icon *ngIf=" i < childList.length ? true : false " [style.color] = "read_id[i] == 1 ? parent_color : 'gray'"  name={{ic}}><!--[ngClass]="read_id[i] == 1 ? 'ion_read_color' :  'ion_color'"--></ion-icon> 
                       </span>
-                      <p>Not complete</p>
+                      <p>{{ total_read_count }} out of {{childList.length}} complete</p>
                   </ion-col>
                 </ion-row>  
 

@@ -22,8 +22,11 @@ $app-direction: ltr;
 // To view all the possible Ionic variables, see:
 // http://ionicframework.com/docs/theming/overriding-ionic-variables/
 
-
-
+@import "theme_one";
+@import "theme_default";
+@import "theme_two";
+@import "theme_four";
+@import "theme_five";
 
 // Named Color Variables
 // --------------------------------------------------
@@ -94,7 +97,7 @@ $colors: (
 @import "roboto";
 @import "noto-sans";
 
-
+/*
 ion-content.navigation-panel.content.content-md {
   background-color: #e8789d;
 }
@@ -128,7 +131,7 @@ ion-content.navigation-panel.content.content-ios {
   background: #e8789d !important;
 }
 
-
+*/
 
 @font-face {
   font-family: MyFont;

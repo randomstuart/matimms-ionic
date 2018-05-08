@@ -11,19 +11,19 @@ import {AboutUsPage} from '../pages/about-us/about-us';
 import { FurtherReadingPage } from '../pages/further-reading/further-reading';
 import { ChildhoodVaccinePlannerPage } from '../pages/childhood-vaccine-planner/childhood-vaccine-planner';
 import { MyjourneyPage } from '../pages/myjourney/myjourney';
-
+import { DataProvider } from '../providers/data/data';
 
 @Component({
   templateUrl: 'app.html'
 })
 export class MyApp {
   @ViewChild(Nav) nav: Nav;
-  
+  selectedTheme :String;
   rootPage: any = HomePage;
 
   pages: Array<{title: string, component: any}>;
  
-  constructor( public platform: Platform, public statusBar: StatusBar, public splashScreen: SplashScreen) {
+  constructor(private dataprovider : DataProvider, public platform: Platform, public statusBar: StatusBar, public splashScreen: SplashScreen) {
     this.initializeApp();
 
     // used for an example of ngFor and navigation
@@ -40,6 +40,9 @@ export class MyApp {
   }
 
   initializeApp() {
+
+    this.dataprovider.getActiveTheme().subscribe(val => this.selectedTheme = val);
+
     this.platform.ready().then(() => {
       // Okay, so the platform is ready and our plugins are available.
       // Here you can do any higher level native things you might need.
