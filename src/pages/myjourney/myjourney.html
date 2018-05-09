@@ -17,10 +17,11 @@
 
 </ion-header>
 
-<ion-content *ngIf="hideData" class="back_img"  >
 
-    
 
+<ion-content #contentRef (ionScroll)="scrollingFun($event)" class="back_img">
+
+  
 
 <div class="middle_div" >
     
@@ -40,7 +41,7 @@
 
   <div class="back_attach">
     <div *ngFor="let candy of small_candy_count ; let i= index "  [ngClass]=" i== 7 ? 'last_small_candy_stick' : 'small_candy_stick' ">
-      <div [ngStyle]="{'background-color' :  color_array[i] }" class="small_candy" >
+      <div  [ngStyle]="{'background-color' :  color_array[i] }" class= "small_candy{{i}}" >
 
       </div>
     </div>  
@@ -121,6 +122,9 @@
    
     </div>  
 
+
     
-  
+    
 </ion-content>
+
+

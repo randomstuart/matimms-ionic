@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
+import { Content } from 'ionic-angular';
 
 import { IonicPage, NavController, NavParams,LoadingController } from 'ionic-angular';
 import { PostsPage} from '../posts/posts';
@@ -9,6 +10,7 @@ import { Http } from '@angular/http';
 
 
 import 'rxjs/add/operator/map';
+import { timeout } from 'rxjs/operator/timeout';
 
 
 
@@ -25,10 +27,12 @@ import 'rxjs/add/operator/map';
   templateUrl: 'myjourney.html',
 })
 export class MyjourneyPage {
-  
-
+  @ViewChild("contentRef") contentHandle: Content;
+            
+ 
   public chapterList:Array<string> = new Array();
-  
+  active_small_candy = true;
+  small_candy = false;  
 
 //  public childCount:Array<number> = new Array(); 
   public small_candy_count :Array<number>=new Array();
@@ -41,7 +45,7 @@ export class MyjourneyPage {
   public parent_id: number;
   public child_count : Array<number> = new Array();
   public count:number =0;
-  public abc : any;
+  public abc : any;  
   public ion_icons:Array<string> =new Array();
 
   public childs: Array<any> =new Array();
@@ -62,9 +66,17 @@ export class MyjourneyPage {
   constructor(private dataprovider: DataProvider, public storage:Storage, private http:Http,public navCtrl: NavController, public navParams: NavParams,public loadingCtrl:LoadingController) {
       this.dataprovider.setActiveTheme('default-theme');       
       this.dataprovider.getActiveTheme().subscribe(val => this.selectedTheme = val );
+
   }
+  
+  
 
   ionViewDidLoad() {
+
+    
+    
+ 
+                 
 
     let loader = this.loadingCtrl.create({  
       spinner: 'bubbles',
@@ -312,12 +324,18 @@ for(let i=0; i< data.length ; i++ )
 
         this.hideData=true;
         loader.dismiss();
+
+         
+        document.querySelector(".small_candy0")['style'].height = '25px';
+    document.querySelector(".small_candy0")['style'].width = '25px';  
       
     });  
 
  
 
   }
+
+
 
 
    sortByProperty = function (property) {
@@ -358,6 +376,113 @@ openSlider(id,title,back_color,dark_color){
 }
 
 
+scrollingFun(e) {
+
+  console.log(this.contentHandle.contentHeight);
+  console.log(this.contentHandle.getContentDimensions());
+  console.log(this.contentHandle.scrollHeight);
+  console.log(e.scrollTop);
+
+  let per = (e.scrollTop/e.scrollHeight) * 100 ;
+  console.log("Per "+per);
+  
+
+  if( e.scrollTop == 0)
+  {
+    document.querySelector(".small_candy0")['style'].height = '25px';
+    document.querySelector(".small_candy0")['style'].width = '25px';
+
+    document.querySelector(".small_candy1")['style'].height = '20px';
+    document.querySelector(".small_candy1")['style'].width = '20px';
+
+  }
+
+  else if( per >= 20 && per < 52 )
+  {
+    document.querySelector(".small_candy0")['style'].height = '20px';
+    document.querySelector(".small_candy0")['style'].width = '20px';
+
+    document.querySelector(".small_candy1")['style'].height = '25px';
+    document.querySelector(".small_candy1")['style'].width = '25px';
+
+    document.querySelector(".small_candy2")['style'].height = '20px';
+    document.querySelector(".small_candy2")['style'].width = '20px';
+  }  
+  else if( per >= 52 && per < 84)  
+  {
+    document.querySelector(".small_candy1")['style'].height = '20px';
+    document.querySelector(".small_candy1")['style'].width = '20px';
+
+    document.querySelector(".small_candy2")['style'].height = '25px';   
+    document.querySelector(".small_candy2")['style'].width = '25px'; 
+
+    document.querySelector(".small_candy3")['style'].height = '20px';
+    document.querySelector(".small_candy3")['style'].width = '20px';
+
+  } 
+  
+  else if( per >= 84 && per < 114)  
+  {
+    document.querySelector(".small_candy2")['style'].height = '20px';
+    document.querySelector(".small_candy2")['style'].width = '20px';
+
+    document.querySelector(".small_candy3")['style'].height = '25px';   
+    document.querySelector(".small_candy3")['style'].width = '25px'; 
+
+    document.querySelector(".small_candy4")['style'].height = '20px';   
+    document.querySelector(".small_candy4")['style'].width = '20px'; 
+
+
+  }
+  else if( per >= 114 && per < 146 )  
+  {
+    document.querySelector(".small_candy3")['style'].height = '20px';
+    document.querySelector(".small_candy3")['style'].width = '20px';
+
+    document.querySelector(".small_candy4")['style'].height = '25px';   
+    document.querySelector(".small_candy4")['style'].width = '25px'; 
+
+    document.querySelector(".small_candy5")['style'].height = '20px';   
+    document.querySelector(".small_candy5")['style'].width = '20px';
+
+  }
+  else if( per >= 146 && per < 177 )  
+  {
+    document.querySelector(".small_candy4")['style'].height = '20px';
+    document.querySelector(".small_candy4")['style'].width = '20px';
+
+    document.querySelector(".small_candy5")['style'].height = '25px';   
+    document.querySelector(".small_candy5")['style'].width = '25px'; 
+
+
+    document.querySelector(".small_candy6")['style'].height = '20px';   
+    document.querySelector(".small_candy6")['style'].width = '20px'; 
+
+  }
+  else if( per >= 177 && per < 209 )  
+  {
+    document.querySelector(".small_candy5")['style'].height = '20px';
+    document.querySelector(".small_candy5")['style'].width = '20px';
+
+    document.querySelector(".small_candy6")['style'].height = '25px';   
+    document.querySelector(".small_candy6")['style'].width = '25px'; 
+
+    document.querySelector(".small_candy7")['style'].height = '20px';   
+    document.querySelector(".small_candy7")['style'].width = '20px';
+
+  }
+  else if( per >= 209 )
+  {
+    document.querySelector(".small_candy6")['style'].height = '20px';
+    document.querySelector(".small_candy6")['style'].width = '20px';
+
+    document.querySelector(".small_candy7")['style'].height = '25px';   
+    document.querySelector(".small_candy7")['style'].width = '25px';
+
+  }
+
+      
+}  
 
 }
   

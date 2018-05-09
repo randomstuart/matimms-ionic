@@ -170,15 +170,13 @@ export class PostsPage {
     });
 
 
-   
-   
-    
 
   }
  
   ionViewDidEnter()
   {
     console.log("Welcome");
+    
   }
 
   postDetail(id,title){
