@@ -110,7 +110,7 @@ export class MyjourneyPage {
     this.color_array.push("transparent");
     this.color_array.push("#f4a876");       
     this.color_array.push("#12b6e8");
-    this.color_array.push("#8bc34a");
+    this.color_array.push("#98E83B");
 
    
     console.log('ionViewDidLoad MyjourneyPage');
@@ -389,7 +389,7 @@ scrollingFun(e) {
 
   if( e.scrollTop == 0 || per < 64)
   {
-    document.querySelector(".small_candy0")['style'].height = '25px';
+     document.querySelector(".small_candy0")['style'].height = '25px';
     document.querySelector(".small_candy0")['style'].width = '25px';
 
     document.querySelector(".small_candy1")['style'].height = '20px';

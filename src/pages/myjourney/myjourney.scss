@@ -6,7 +6,7 @@ page-myjourney {
 .back_img{
 
     background-image: url("../assets/imgs/journey-bkgrd-large.jpg");
-    background-size: 100%;
+    background-size: 122%;
     background-repeat: no-repeat;
 }
 
@@ -72,10 +72,18 @@ page-myjourney {
     margin-right: 10px;
 }
 
+.circle_two{
+    margin-left: 10px;
+    font-size: 14px;
+  //  margin-top: 4px;
+    margin-right: 10px;
+}
+
 .icon_css{
     color: #e8789d;
     padding-top: 10px;
     font-size: 50px;
+    font-weight: bold;
 
 }
 
@@ -116,7 +124,7 @@ page-myjourney {
 }
 
 .Last_div{
-    height: 80%;
+    height: auto;
     overflow: hidden;
     display: table;
     width: 100%;
@@ -149,8 +157,8 @@ page-myjourney {
 
 .small_candy0 {
     border-radius: 50%;
-    width: 20px;
-    height: 20px;
+    width: 25px;
+    height: 25px;
     background: white;
     margin: 0 auto;
     margin-bottom: 50%;
@@ -257,4 +265,17 @@ page-myjourney {
     position: fixed;
     margin-left: 3%;
     margin-top: -40%;
+}
+
+.Last_div p.dynamic_header {
+    width: 85%;
+    margin: 0 auto;
+    padding-top: 5%;
+}
+
+.last_div_img{
+
+    width: 25%;
+    margin: 0 auto;
+    margin-top: -3%;
 }

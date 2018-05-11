@@ -13,8 +13,10 @@
 <ion-content padding>
 
     <ion-item>
-        <ion-label>Due Date</ion-label>
-        <ion-datetime displayFormat="DD/MM/YYYY" min="2017-05-10" max="2080-10-31" pickerFormat="DD MM YYYY" [(ngModel)]="myDate" (ionChange)="getDueDate(myDate)"></ion-datetime>
+        <ion-label>Due Date {{ myDate }}</ion-label>
+        <ion-datetime displayFormat="YYYY-MM-DD" min="2017-05-10" max="2080-10-31" pickerFormat="DD MM YYYY" [(ngModel)]="myDate" (ionChange)="getDueDate(myDate)"></ion-datetime>
+        
     </ion-item>
-
+     
+      
 </ion-content>

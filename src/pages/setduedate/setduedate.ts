@@ -40,7 +40,7 @@ export class SetduedatePage {
 
   getDueDate(date){   
 
-    //console.log(date);
+    console.log("SetDueDate "+date);
     this.storage.set("dueDate",date);
     this.navCtrl.push(HomePage);
     
