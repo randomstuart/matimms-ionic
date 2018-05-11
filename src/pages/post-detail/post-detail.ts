@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams,LoadingController, Content ,ViewController } from 'ionic-angular';
+import { IonicPage, NavController, NavParams,LoadingController /*, Content ,ViewController */ } from 'ionic-angular';
 import { PostsPage } from '../posts/posts';
 import { Storage } from '@ionic/storage';
 import { FurtherReadingPage } from '../further-reading/further-reading';
@@ -9,6 +9,8 @@ import 'rxjs/add/operator/map';
 
 import { ViewChild } from '@angular/core';
 import { Navbar , AlertController } from 'ionic-angular';
+import { DataProvider } from '../../providers/data/data';
+
 /**
  * Generated class for the PostDetailPage page.
  *
@@ -37,6 +39,7 @@ export class PostDetailPage {
   grand_parent_id:any;
   hide_show:boolean=false;
   imgUrl:any;
+  parent_title:String;
   public hideData:boolean=false;
   public data_innate_adaptive : any;
   public innate : number = 0;
@@ -48,8 +51,8 @@ export class PostDetailPage {
   
   @ViewChild(Navbar) navBar: Navbar;
 
-  constructor(public alertCtrl: AlertController ,public storage:Storage,public http:Http, public navCtrl: NavController, public navParams: NavParams,public loadCtrl:LoadingController) {
-      
+  constructor(private dataprovider :DataProvider, public alertCtrl: AlertController ,public storage:Storage,public http:Http, public navCtrl: NavController, public navParams: NavParams,public loadCtrl:LoadingController) {
+  
   }
     
   ionViewDidLoad() {
@@ -58,7 +61,9 @@ export class PostDetailPage {
     this.header_title=this.navParams.get('title');
     this.parent_color=this.navParams.get('parent_color');
     this.grand_parent_id=this.navParams.get('parent_id');
+    this.parent_title = this.navParams.get('parent_title');
     console.log("SubPost"+this.id);
+    console.log(this.grand_parent_id);
     console.log(this.parent_color);
    
       this.getData();
@@ -91,7 +96,7 @@ export class PostDetailPage {
           this.length=this.postDescription.length;   
           console.log(this.postDescription.length);
           console.log(this.postDescription);    
-          console.log();  
+         
                  
             this.title = this.postDescription[this.index].title.rendered;                 
             this.description = this.postDescription[this.index].content.rendered;
@@ -115,11 +120,35 @@ export class PostDetailPage {
           }
           this.hideData=true;  
           loader.dismiss();
+     
+         this.menu_color();
 
           });
 
         
   }
+
+
+  menu_color(){
+
+    if( this.grand_parent_id == 619)
+    {
+        this.dataprovider.setActiveTheme('five-theme');
+    }    
+    else if( this.grand_parent_id == 59)    
+    {
+        this.dataprovider.setActiveTheme('four-theme');
+    } 
+    else if( this.grand_parent_id == 35)
+    {
+        this.dataprovider.setActiveTheme('two-theme');
+    } 
+    else
+    {
+      this.dataprovider.setActiveTheme('one-theme');    
+    }
+
+  }  
                          
 
   nextPage(){
@@ -145,7 +174,8 @@ export class PostDetailPage {
           else
           {
             this.storage.set(this.id,1);
-            this.navCtrl.pop();
+           // this.navCtrl.pop();
+            this.navCtrl.push(PostsPage,{'id':this.grand_parent_id, 'title':this.parent_title,'back_color':this.parent_color });
             
           }    
      
@@ -230,6 +260,11 @@ getInfo(ind,information){
   this.how_vaccines_index=ind;              
 }
 
+
+ionViewWillEnter()
+{
+  this.menu_color();
+}
 
 
 }

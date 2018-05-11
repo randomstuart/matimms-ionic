@@ -10,7 +10,7 @@ import { Http } from '@angular/http';
 
 
 import 'rxjs/add/operator/map';
-import { timeout } from 'rxjs/operator/timeout';
+//import { timeout } from 'rxjs/operator/timeout';
 
 
 
@@ -326,8 +326,8 @@ for(let i=0; i< data.length ; i++ )
         loader.dismiss();
 
          
-        document.querySelector(".small_candy0")['style'].height = '25px';
-    document.querySelector(".small_candy0")['style'].width = '25px';  
+     //   document.querySelector(".small_candy0")['style'].height = '25px';
+   // document.querySelector(".small_candy0")['style'].width = '25px';  
       
     });  
 
@@ -387,7 +387,7 @@ scrollingFun(e) {
   console.log("Per "+per);
   
 
-  if( e.scrollTop == 0)
+  if( e.scrollTop == 0 || per < 64)
   {
     document.querySelector(".small_candy0")['style'].height = '25px';
     document.querySelector(".small_candy0")['style'].width = '25px';
@@ -397,7 +397,7 @@ scrollingFun(e) {
 
   }
 
-  else if( per >= 20 && per < 52 )
+  else if( per >= 64 && per < 166 )
   {
     document.querySelector(".small_candy0")['style'].height = '20px';
     document.querySelector(".small_candy0")['style'].width = '20px';
@@ -408,7 +408,7 @@ scrollingFun(e) {
     document.querySelector(".small_candy2")['style'].height = '20px';
     document.querySelector(".small_candy2")['style'].width = '20px';
   }  
-  else if( per >= 52 && per < 84)  
+  else if( per >= 166 && per < 264)  
   {
     document.querySelector(".small_candy1")['style'].height = '20px';
     document.querySelector(".small_candy1")['style'].width = '20px';
@@ -421,7 +421,7 @@ scrollingFun(e) {
 
   } 
   
-  else if( per >= 84 && per < 114)  
+  else if( per >= 264 && per < 364)  
   {
     document.querySelector(".small_candy2")['style'].height = '20px';
     document.querySelector(".small_candy2")['style'].width = '20px';
@@ -434,7 +434,7 @@ scrollingFun(e) {
 
 
   }
-  else if( per >= 114 && per < 146 )  
+  else if( per >= 364 && per < 465 )  
   {
     document.querySelector(".small_candy3")['style'].height = '20px';
     document.querySelector(".small_candy3")['style'].width = '20px';
@@ -446,7 +446,7 @@ scrollingFun(e) {
     document.querySelector(".small_candy5")['style'].width = '20px';
 
   }
-  else if( per >= 146 && per < 177 )  
+  else if( per >= 465 && per < 565 )  
   {
     document.querySelector(".small_candy4")['style'].height = '20px';
     document.querySelector(".small_candy4")['style'].width = '20px';
@@ -459,7 +459,7 @@ scrollingFun(e) {
     document.querySelector(".small_candy6")['style'].width = '20px'; 
 
   }
-  else if( per >= 177 && per < 209 )  
+  else if( per >= 565 && per < 666 )  
   {
     document.querySelector(".small_candy5")['style'].height = '20px';
     document.querySelector(".small_candy5")['style'].width = '20px';
@@ -471,7 +471,7 @@ scrollingFun(e) {
     document.querySelector(".small_candy7")['style'].width = '20px';
 
   }
-  else if( per >= 209 )
+  else if( per >= 666 )
   {
     document.querySelector(".small_candy6")['style'].height = '20px';
     document.querySelector(".small_candy6")['style'].width = '20px';

@@ -21,7 +21,7 @@
 
 <ion-content #contentRef (ionScroll)="scrollingFun($event)" class="back_img">
 
-  
+ <div *ngIf="hideData" class="main_content"> 
 
 <div class="middle_div" >
     
@@ -123,7 +123,7 @@
     </div>  
 
 
-    
+  </div>
     
 </ion-content>
 

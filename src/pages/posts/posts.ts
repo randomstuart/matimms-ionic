@@ -1,5 +1,5 @@
 import { Component, ViewChild } from '@angular/core';
-import { IonicPage, NavController, NavParams , LoadingController , ViewController} from 'ionic-angular';
+import { IonicPage, NavController, NavParams , LoadingController /*, ViewController */ } from 'ionic-angular';
 import { PostDetailPage } from '../post-detail/post-detail';
 import { Storage } from '@ionic/storage';
 import { Http } from '@angular/http';
@@ -38,6 +38,7 @@ export class PostsPage {
   nearly_btn_text : String = "READ" ;
   nearly_header : String ="Nearly there";
   slide_count : number= -1;
+  direct_move : number=0;
   selectedTheme:String;
   @ViewChild('mySlider') mySlider;
   @ViewChild(Slides) slides: Slides;
@@ -47,7 +48,7 @@ export class PostsPage {
   constructor(private dataprovider: DataProvider, public storage:Storage,public http:Http, public navCtrl: NavController, public navParams: NavParams, public loadCtrl:LoadingController) {
     
     this.parent_id=this.navParams.get('id'); 
-    console.log(this.parent_id);
+    console.log("Test "+this.parent_id);
     if( this.parent_id == 619)
     {
         this.dataprovider.setActiveTheme('five-theme');
@@ -85,7 +86,8 @@ export class PostsPage {
     this.ion_icons.push("medical");
     this.ion_icons.push("star");
 
-    console.log(this.parent_id);        
+    console.log(this.parent_id);
+    console.log(this.parent_title);        
     console.log(this.parent_color);
     console.log(this.parent_dark_color);      
     console.log(this.ion_icons);           
@@ -113,7 +115,7 @@ export class PostsPage {
         content : "Please wait..."
     });
 
-    loader.present();
+    loader.present(); 
 
     this.http.get("http://matimms.org.uk/wp-json/wp/v2/journey?filter%5Bposts_per_page%5D=-1&filter%5Border%5D=ASC&filer%5Borderby%5D=menu_order").
     map(res => res.json()).subscribe(data => {
@@ -162,9 +164,32 @@ export class PostsPage {
         this.post_icon=this.ion_parent_icon[this.icon_index];
         this.hideData=true;
 
-        
+        console.log(this.childList);
         loader.dismiss();
+       
+    
+    
+  setTimeout(()=>{
+  console.log(this.read_id.length);
+  for( let i=0; i<this.read_id.length ; i++)
+  {
+      if( this.read_id[i] == null)
+      {
+        this.slide_count = i;
+        break;
+      }
+      else
+      {
+         this.direct_move++;
+      }
+      
+  }
 
+  if( this.direct_move == this.read_id.length )
+    this.slides.slideTo(this.direct_move, 500);
+  else
+    this.slides.slideTo(this.slide_count,500);     
+  },2000);
         
        
     });
@@ -175,7 +200,7 @@ export class PostsPage {
  
   ionViewDidEnter()
   {
-    console.log("Welcome");
+    console.log("Welcome"); 
     
   }
 
@@ -184,7 +209,7 @@ export class PostsPage {
       console.log(id);
       console.log(this.parent_color); 
 
-      this.navCtrl.push(PostDetailPage,{'parent_id':this.parent_id,'id':id,'title':title,'parent_color':this.parent_color});
+      this.navCtrl.push(PostDetailPage,{'parent_id':this.parent_id,'id':id,'title':title,'parent_color':this.parent_color,'parent_title':this.parent_title});
 
   }
 
@@ -226,5 +251,16 @@ export class PostsPage {
     this.dataprovider.setActiveTheme('default-theme');
   }
       
+  ionViewWillEnter(){
+/*    console.log("ionViewWillEnter");
+    this.ion_parent_icon = [];   
+    this.childList = [];  
+    this.read_id = [];
+    this.total_read_count = 0;            
+    this.getPost();*/
+ 
+  }
+
+
 
 }
