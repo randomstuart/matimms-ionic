@@ -62,6 +62,14 @@ export class VaccinationSchedulePage {
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad VaccinationSchedulePage');
+
+    this.localNotifications.schedule({
+      text: '8 week vaccination reminder',
+      trigger: {at: new Date()},
+      led: 'FF0000',
+      sound: null
+    });
+    
   }
 
   //calculate the vaccination perioids

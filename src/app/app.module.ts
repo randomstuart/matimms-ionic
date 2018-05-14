@@ -27,6 +27,7 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 import { DataProvider } from '../providers/data/data';
 import { HttpClientModule } from '@angular/common/http';
 
+
 @NgModule({
   declarations: [
     MyApp,
@@ -41,6 +42,7 @@ import { HttpClientModule } from '@angular/common/http';
     MyjourneyPage,
     PostsPage,
     PostDetailPage
+   
   ],
   imports: [
     BrowserModule,
@@ -57,12 +59,14 @@ import { HttpClientModule } from '@angular/common/http';
     DuedatePage,
     VaccinationSchedulePage,
     AboutUsPage,
-    FurtherReadingPage,
+    FurtherReadingPage,                     
     ChildhoodVaccinePlannerPage,
     SetduedatePage  ,
     MyjourneyPage ,
     PostsPage ,
-    PostDetailPage       
+    PostDetailPage
+   
+           
   ],
   providers: [
     StatusBar,

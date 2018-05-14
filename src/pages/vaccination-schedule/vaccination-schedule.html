@@ -71,7 +71,7 @@
   </ion-col>
   
   <ion-col col-6 class="vaccine-duration">
-    <p>   <b>8</b>weeks<br>
+    <p class="remove_p_margin">   <b>8</b>weeks<br>
           <b>{{eight_week}}</b><br><br>
           <b  [ngClass]=" event_label_8wk == 'Add to calendar' ? 'addToCalendar' : 'addedToCalendar' " (click)="scheduleNotification('8wk',eight_week,'event_label_8wk')"><img class="calendar_icon" [src]="event_img_8wk"/> {{event_label_8wk}}</b>
     </p>
@@ -204,7 +204,7 @@
       </ion-col>
   
       <ion-col col-6 class="vaccine-duration">
-        <p>Girls aged 12 to 13 years
+        <p class="remove_p_margin">Girls aged 12 to 13 years
           <br>
           <b>{{twelve_years}}</b><br><br>
           <b class="addToCalendar"  [ngClass]=" event_label_12yr == 'Add to calendar' ? 'addToCalendar' : 'addedToCalendar' " (click)="scheduleNotification('12yr',twelve_years,'event_label_12yr')"><img class="calendar_icon"  [src]="event_img_12yr"/>{{event_label_12yr}}</b>

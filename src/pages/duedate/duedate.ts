@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { Storage } from '@ionic/storage';
 import { HomePage} from '../home/home';
-import { DatePipe } from '@angular/common'
+//import { DatePipe } from '@angular/common';  
 
 /**
  * Generated class for the DuedatePage page.
@@ -18,12 +18,12 @@ import { DatePipe } from '@angular/common'
 })
 export class DuedatePage {
 
-     myDate : String; 
+    
  // latest_date : any;
  // date: any;
-  
+ myDate: any;
 
-  constructor(private datePipe: DatePipe, private storage : Storage,  public navCtrl: NavController, public navParams: NavParams) {
+  constructor(/*private datePipe: DatePipe,*/ private storage : Storage,  public navCtrl: NavController, public navParams: NavParams) {
 
      // get current date
      //this.date = new Date();
@@ -32,7 +32,8 @@ export class DuedatePage {
    //  console.log(this.latest_date);  
    //  this.myDate=this.latest_date; 
       
-  
+  // this.myDate = "2018-11-11";      
+          
   }         
 
   ionViewDidLoad() {
@@ -45,15 +46,15 @@ export class DuedatePage {
         this.myDate = date;
   
         console.log("Mydate"+this.myDate);   
-    });
+    }); 
   }
 
   getDueDate(date){
-    
+                      
     console.log(date);
     this.storage.set("dueDate",date);
-    this.navCtrl.push(HomePage);
-  }    
+    this.navCtrl.push(HomePage);    
+}   
 
   
 

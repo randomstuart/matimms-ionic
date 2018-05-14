@@ -13,14 +13,16 @@ import { ChildhoodVaccinePlannerPage } from '../pages/childhood-vaccine-planner/
 import { MyjourneyPage } from '../pages/myjourney/myjourney';
 import { DataProvider } from '../providers/data/data';
 
+
+
 @Component({
   templateUrl: 'app.html'
 })
 export class MyApp {
   @ViewChild(Nav) nav: Nav;
   selectedTheme :String;
-  rootPage: any = HomePage;
-
+  rootPage: any = HomePage;         
+    
   pages: Array<{title: string, component: any}>;
  
   constructor(private dataprovider : DataProvider, public platform: Platform, public statusBar: StatusBar, public splashScreen: SplashScreen) {
